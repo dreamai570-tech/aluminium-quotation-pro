@@ -226,7 +226,7 @@
         }
 
         .pdf-mode table {
-            min-width: 1000px !important;
+            min-width: 0 !important;
             width: 100% !important;
             table-layout: fixed !important;
         }
@@ -594,7 +594,7 @@
             filename:     'Quotation_' + quoteNo + '_' + customer + '.pdf',
             image:        { type: 'jpeg', quality: 1 },
             html2canvas:  { scale: 3, useCORS: true, windowWidth: 1000, width: 1000 },
-            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'landscape' }
         };
 
         if (typeof html2pdf === 'undefined') {
