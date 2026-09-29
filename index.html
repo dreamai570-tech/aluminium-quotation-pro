@@ -1,2855 +1,894 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Aluminium Quotation Pro</title>
-
-<style>
-*{
-  box-sizing:border-box;
-  -webkit-tap-highlight-color:transparent;
-}
-
-html,body{
-  margin:0;
-  padding:0;
-  width:100%;
-  min-height:100%;
-  overflow-x:hidden;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#0b1220;
-  color:#eaf0f7;
-}
-
-button,input,select,textarea{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-body{
-  display:flex;
-  justify-content:center;
-}
-
-.app{
-  width:100%;
-  max-width:430px;
-  min-height:100vh;
-  margin:0 auto;
-  padding:8px;
-  background:#0f172a;
-}
-
-/* HEADER */
-.header{
-  background:linear-gradient(135deg,#172554,#0f766e);
-  border-radius:18px;
-  padding:15px;
-  margin-bottom:8px;
-  box-shadow:0 8px 25px rgba(0,0,0,.25);
-}
-
-.header-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:8px;
-}
-
-.logo{
-  font-size:21px;
-  font-weight:900;
-}
-
-.subtitle{
-  font-size:11px;
-  opacity:.75;
-  margin-top:3px;
-}
-
-.header-actions{
-  display:flex;
-  gap:5px;
-}
-
-.icon-btn{
-  width:38px;
-  height:38px;
-  border:0;
-  border-radius:11px;
-  background:rgba(255,255,255,.12);
-  color:#fff;
-}
-
-/* TOOLBAR */
-.toolbar{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:6px;
-  margin-bottom:8px;
-}
-
-.toolbar button{
-  border:0;
-  border-radius:11px;
-  padding:10px 7px;
-  color:#fff;
-  background:#1e293b;
-  font-weight:700;
-  font-size:12px;
-}
-
-.toolbar button.primary{
-  background:#0ea5e9;
-}
-
-.toolbar button.green{
-  background:#059669;
-}
-
-.toolbar button.orange{
-  background:#d97706;
-}
-
-/* CARD */
-.card{
-  background:#111c30;
-  border:1px solid #24324a;
-  border-radius:16px;
-  padding:12px;
-  margin-bottom:8px;
-  box-shadow:0 5px 18px rgba(0,0,0,.16);
-}
-
-.card-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:10px;
-  font-size:14px;
-  font-weight:900;
-}
-
-.badge{
-  background:#172554;
-  color:#60a5fa;
-  padding:4px 7px;
-  border-radius:7px;
-  font-size:10px;
-}
-
-/* CUSTOMER */
-.customer-box{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px;
-  background:#0b1425;
-  border-radius:11px;
-  padding:9px;
-}
-
-.customer-info{
-  min-width:0;
-}
-
-.customer-name{
-  font-weight:800;
-  font-size:13px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.customer-sub{
-  font-size:10px;
-  color:#94a3b8;
-  margin-top:3px;
-}
-
-.small-btn{
-  border:0;
-  border-radius:8px;
-  padding:7px 9px;
-  background:#334155;
-  color:#fff;
-  font-size:11px;
-  font-weight:700;
-}
-
-/* FORM */
-.entry-grid,
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:8px;
-}
-
-.field label{
-  display:block;
-  font-size:10px;
-  color:#94a3b8;
-  margin:0 0 4px 2px;
-  font-weight:700;
-}
-
-.field input,
-.field select,
-.field textarea{
-  width:100%;
-  min-width:0;
-  border:1px solid #334155;
-  outline:none;
-  background:#0b1425;
-  color:#fff;
-  border-radius:10px;
-  padding:11px;
-  font-size:13px;
-}
-
-.field input:focus,
-.field select:focus,
-.field textarea:focus{
-  border-color:#0ea5e9;
-}
-
-.field textarea{
-  min-height:70px;
-  resize:vertical;
-}
-
-.rate-preview{
-  margin-top:8px;
-  padding:9px;
-  background:#0b1425;
-  border-radius:10px;
-  border:1px solid #23314a;
-}
-
-.rate-title{
-  font-size:10px;
-  color:#94a3b8;
-  margin-bottom:6px;
-}
-
-.rate-chips{
-  display:flex;
-  flex-wrap:wrap;
-  gap:4px;
-}
-
-.rate-chip{
-  padding:5px 7px;
-  border-radius:6px;
-  background:#1e293b;
-  font-size:10px;
-}
-
-.rate-chip.active{
-  background:#075985;
-  color:#bae6fd;
-}
-
-/* ADD ITEM */
-.add-btn{
-  width:100%;
-  border:0;
-  border-radius:12px;
-  padding:13px;
-  margin-top:9px;
-  color:#fff;
-  background:linear-gradient(135deg,#0284c7,#0369a1);
-  font-size:14px;
-  font-weight:900;
-}
-
-/* TABLE */
-.table-wrap{
-  width:100%;
-  overflow-x:auto;
-  overflow-y:hidden;
-  border-radius:10px;
-  border:1px solid #27364e;
-  -webkit-overflow-scrolling:touch;
-}
-
-table{
-  width:1050px;
-  border-collapse:collapse;
-  font-size:10px;
-}
-
-th{
-  background:#172554;
-  color:#bfdbfe;
-  padding:8px 6px;
-  white-space:nowrap;
-  text-align:left;
-}
-
-td{
-  padding:7px 6px;
-  border-top:1px solid #26344b;
-  white-space:nowrap;
-}
-
-tr:nth-child(even) td{
-  background:rgba(255,255,255,.015);
-}
-
-.empty{
-  text-align:center;
-  padding:20px;
-  color:#64748b;
-}
-
-/* ACTIONS */
-.row-actions{
-  display:flex;
-  gap:4px;
-}
-
-.row-actions button{
-  border:0;
-  border-radius:6px;
-  padding:5px 7px;
-  color:#fff;
-  font-size:10px;
-}
-
-.edit{background:#0369a1}
-.copy{background:#475569}
-.delete{background:#b91c1c}
-
-/* TOTALS */
-.total-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:6px;
-}
-
-.total-box{
-  background:#0b1425;
-  border:1px solid #26344b;
-  border-radius:10px;
-  padding:9px;
-}
-
-.total-label{
-  color:#94a3b8;
-  font-size:10px;
-}
-
-.total-value{
-  margin-top:4px;
-  font-weight:900;
-  font-size:14px;
-}
-
-.grand{
-  grid-column:1/-1;
-  background:linear-gradient(135deg,#064e3b,#065f46);
-  border-color:#047857;
-}
-
-.grand .total-value{
-  font-size:22px;
-  color:#a7f3d0;
-}
-
-/* SUMMARY */
-.summary-row{
-  display:flex;
-  justify-content:space-between;
-  gap:8px;
-  padding:7px 0;
-  border-bottom:1px solid #23314a;
-  font-size:12px;
-}
-
-.summary-row:last-child{
-  border-bottom:0;
-}
-
-.summary-row span:first-child{
-  color:#94a3b8;
-}
-
-.summary-row strong{
-  text-align:right;
-}
-
-/* MODAL */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.72);
-  display:none;
-  align-items:flex-end;
-  justify-content:center;
-  z-index:1000;
-  padding:8px;
-}
-
-.modal.show{
-  display:flex;
-}
-
-.modal-box{
-  width:100%;
-  max-width:430px;
-  max-height:92vh;
-  overflow-y:auto;
-  background:#111c30;
-  border:1px solid #334155;
-  border-radius:18px;
-  padding:14px;
-}
-
-.modal-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:12px;
-}
-
-.modal-title{
-  font-size:16px;
-  font-weight:900;
-}
-
-.close{
-  border:0;
-  width:32px;
-  height:32px;
-  border-radius:9px;
-  background:#334155;
-  color:#fff;
-}
-
-.modal-actions{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:7px;
-  margin-top:12px;
-}
-
-.modal-actions button{
-  border:0;
-  border-radius:10px;
-  padding:11px;
-  color:#fff;
-  font-weight:800;
-  background:#334155;
-}
-
-.modal-actions .save{
-  background:#059669;
-}
-
-/* RATE MANAGER */
-.rate-manager{
-  overflow-x:auto;
-}
-
-.rate-table{
-  width:850px;
-  border-collapse:collapse;
-  font-size:10px;
-}
-
-.rate-table input{
-  width:75px;
-  padding:6px;
-  background:#0b1425;
-  color:#fff;
-  border:1px solid #334155;
-  border-radius:6px;
-}
-
-/* HISTORY */
-.history-item{
-  padding:10px;
-  background:#0b1425;
-  border:1px solid #26344b;
-  border-radius:10px;
-  margin-bottom:7px;
-}
-
-.history-top{
-  display:flex;
-  justify-content:space-between;
-  gap:8px;
-}
-
-.history-name{
-  font-weight:900;
-}
-
-.history-date{
-  font-size:9px;
-  color:#64748b;
-}
-
-.history-total{
-  margin-top:5px;
-  color:#6ee7b7;
-  font-weight:900;
-}
-
-/* CHECK APP */
-.check-item{
-  display:flex;
-  justify-content:space-between;
-  padding:8px;
-  margin-bottom:5px;
-  background:#0b1425;
-  border-radius:8px;
-  font-size:11px;
-}
-
-.pass{
-  color:#4ade80;
-  font-weight:900;
-}
-
-.fail{
-  color:#f87171;
-  font-weight:900;
-}
-
-/* FOOTER */
-.footer{
-  text-align:center;
-  padding:12px 5px;
-  color:#64748b;
-  font-size:9px;
-}
-
-/* PRINT */
-@media print{
-  body{
-    background:#fff;
-    color:#000;
-    font-size:14px;
-  }
-
-  .app{
-    max-width:none;
-    background:#fff;
-    padding:0;
-  }
-
-  .toolbar,
-  .header-actions,
-  .add-btn,
-  .row-actions,
-  .customer-box button,
-  .no-print{
-    display:none!important;
-  }
-
-  .header{
-    background:#fff;
-    box-shadow:none;
-    border:1px solid #000;
-    padding:10px;
-    border-radius:0;
-  }
-
-  .logo{
-    font-size:24px;
-    color:#000;
-  }
-
-  .subtitle{
-    color:#333;
-    opacity:1;
-    font-size:12px;
-  }
-
-  .card{
-    color:#000;
-    background:#fff;
-    border:1px solid #999;
-    box-shadow:none;
-    border-radius:0;
-    page-break-inside:avoid;
-  }
-
-  .card-title{
-    font-size:16px;
-  }
-
-  .badge{
-    background:#fff;
-    color:#000;
-    border:1px solid #000;
-  }
-
-  .customer-box{
-    background:#fff;
-    border:1px solid #999;
-  }
-
-  .customer-name{
-    font-size:15px;
-    color:#000;
-  }
-
-  .customer-sub{
-    color:#333;
-    font-size:12px;
-  }
-
-  .field label{
-    color:#333;
-    font-size:11px;
-  }
-
-  .field input,
-  .field select,
-  .field textarea{
-    background:#fff;
-    color:#000;
-    border:1px solid #ccc;
-    font-size:14px;
-    padding:6px;
-  }
-
-  .table-wrap{
-    overflow:visible;
-    border:1px solid #999;
-  }
-
-  table{
-    width:100%;
-    color:#000;
-    font-size:13px;
-  }
-
-  th{
-    background:#eee;
-    color:#000;
-    font-size:13px;
-    padding:8px 6px;
-  }
-
-  td{
-    color:#000;
-    font-size:13px;
-    padding:8px 6px;
-  }
-
-  .total-label{
-    color:#333;
-    font-size:12px;
-  }
-
-  .total-value{
-    font-size:17px;
-    color:#000;
-  }
-
-  .grand{
-    background:#eee;
-    border:1px solid #000;
-  }
-
-  .grand .total-value{
-    font-size:26px;
-    color:#000;
-  }
-
-  .summary-row{
-    font-size:14px;
-  }
-
-  .footer{
-    color:#666;
-    font-size:11px;
-  }
-}
-
-/* DESKTOP */
-@media(min-width:700px){
-  body{
-    padding:15px;
-  }
-
-  .app{
-    max-width:900px;
-    border-radius:20px;
-    padding:14px;
-  }
-
-  .entry-grid{
-    grid-template-columns:1.2fr 1fr 1fr;
-  }
-
-  .form-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .toolbar{
-    grid-template-columns:repeat(4,1fr);
-  }
-
-  .modal{
-    align-items:center;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div class="app">
-
-  <!-- HEADER -->
-  <header class="header">
-    <div class="header-top">
-      <div>
-        <div class="logo">Aluminium Quotation Pro</div>
-        <div class="subtitle">Professional quotation & rate management</div>
-      </div>
-
-      <div class="header-actions">
-        <button class="icon-btn" onclick="openModal('companyModal')">🏢</button>
-        <button class="icon-btn" onclick="openModal('customerModal')">👤</button>
-      </div>
-    </div>
-  </header>
-
-  <!-- TOOLBAR -->
-  <div class="toolbar">
-    <button class="primary" onclick="newQuotation()">＋ New</button>
-    <button onclick="saveQuotation()">💾 Save</button>
-    <button onclick="printQuotation()">🖨️ Print</button>
-    <button class="green" onclick="sendWhatsApp()">📱 WhatsApp</button>
-    <button onclick="openRateManager()">⚙️ Rates</button>
-    <button onclick="openHistory()">🕘 History</button>
-    <button class="orange" onclick="backupData()">⬇ Backup</button>
-    <button onclick="restoreInput.click()">⬆ Restore</button>
-    <button onclick="checkApp()">🧪 Check App</button>
-    <button onclick="openSummary()">📊 Summary</button>
-  </div>
-
-  <input type="file" id="restoreInput" accept=".json" style="display:none" onchange="restoreData(event)">
-
-  <!-- CUSTOMER -->
-  <section class="card">
-    <div class="card-title">
-      Customer
-      <span class="badge" id="quotationNo">QT-0001</span>
-    </div>
-
-    <div class="customer-box">
-      <div class="customer-info">
-        <div class="customer-name" id="customerName">Walk-in Customer</div>
-        <div class="customer-sub" id="customerPhone">No phone added</div>
-      </div>
-      <button class="small-btn" onclick="openModal('customerModal')">Edit</button>
-    </div>
-  </section>
-
-  <!-- ITEM ENTRY -->
-  <section class="card no-print">
-    <div class="card-title">
-      Add Quotation Item
-      <span class="badge">AUTO RATE</span>
-    </div>
-
-    <div class="entry-grid">
-
-      <div class="field">
-        <label>SECTION</label>
-        <select id="section" onchange="updateRate()">
-          <option value="">Select Section</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>COLOUR</label>
-        <select id="colour" onchange="toggleCustomColour()">
-          <option>Champagne</option>
-          <option>White 9016</option>
-          <option>Matt Black</option>
-          <option>Silver</option>
-          <option>White</option>
-          <option>Brown</option>
-          <option>Golden</option>
-          <option>Wood</option>
-          <option>Custom</option>
-        </select>
-      </div>
-
-      <div class="field" id="customColourBox" style="display:none">
-        <label>CUSTOM COLOUR</label>
-        <input id="customColour" placeholder="Enter colour">
-      </div>
-
-      <div class="field">
-        <label>THICKNESS</label>
-        <select id="thickness" onchange="updateRate()">
-          <option value="0.9">0.9 mm</option>
-          <option value="1.1">1.1 mm</option>
-          <option value="1.2">1.2 mm</option>
-          <option value="1.5">1.5 mm</option>
-          <option value="1.6">1.6 mm</option>
-          <option value="1.9">1.9 mm</option>
-          <option value="2.0">2.0 mm</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>LENGTH / SIZE</label>
-        <input id="size" placeholder="Example: 10 × 4" inputmode="text">
-      </div>
-
-      <div class="field">
-        <label>QUANTITY</label>
-        <input id="quantity" type="number" min="0" step="1" placeholder="Qty">
-      </div>
-
-      <div class="field">
-        <label>AUTO RATE</label>
-        <input id="rate" type="number" readonly placeholder="Auto">
-      </div>
-
-      <div class="field">
-        <label>DISCOUNT %</label>
-        <input id="itemDiscount" type="number" min="0" max="100" value="0">
-      </div>
-
-    </div>
-
-    <div class="rate-preview">
-      <div class="rate-title">Current rate by thickness</div>
-      <div class="rate-chips" id="rateChips"></div>
-    </div>
-
-    <button class="add-btn" onclick="addItem()">＋ ADD ITEM</button>
-  </section>
-
-  <!-- ITEMS TABLE -->
-  <section class="card">
-    <div class="card-title">
-      Quotation Items
-      <button class="small-btn" onclick="clearItems()">Clear All</button>
-    </div>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Section</th>
-            <th>Colour</th>
-            <th>Thickness</th>
-            <th>Length / Size</th>
-            <th>Qty</th>
-            <th>Rate</th>
-            <th>Amount</th>
-            <th>Discount</th>
-            <th>After Discount</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody id="itemsBody">
-          <tr>
-            <td colspan="11" class="empty">No items added yet</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- EXTRA CHARGES -->
-  <section class="card">
-    <div class="card-title">Charges & Adjustments</div>
-
-    <div class="form-grid">
-
-      <div class="field">
-        <label>GLOBAL DISCOUNT %</label>
-        <input id="globalDiscount" type="number" min="0" max="100" value="0" oninput="calculateTotals()">
-      </div>
-
-      <div class="field">
-        <label>TAX / GST %</label>
-        <input id="tax" type="number" min="0" value="0" oninput="calculateTotals()">
-      </div>
-
-      <div class="field">
-        <label>LABOUR</label>
-        <input id="labour" type="number" min="0" value="0" oninput="calculateTotals()">
-      </div>
-
-      <div class="field">
-        <label>FREIGHT</label>
-        <input id="freight" type="number" min="0" value="0" oninput="calculateTotals()">
-      </div>
-
-      <div class="field">
-        <label>PREVIOUS BALANCE</label>
-        <input id="previousBalance" type="number" value="0" oninput="calculateTotals()">
-      </div>
-
-      <div class="field">
-        <label>AMOUNT PAID</label>
-        <input id="paid" type="number" min="0" value="0" oninput="calculateTotals()">
-      </div>
-
-    </div>
-
-    <div class="field" style="margin-top:8px">
-      <label>NOTES</label>
-      <textarea id="notes" placeholder="Quotation notes..."></textarea>
-    </div>
-  </section>
-
-  <!-- TOTALS -->
-  <section class="card">
-    <div class="card-title">Quotation Total</div>
-
-    <div class="total-grid">
-
-      <div class="total-box">
-        <div class="total-label">Gross</div>
-        <div class="total-value" id="grossTotal">Rs 0</div>
-      </div>
-
-      <div class="total-box">
-        <div class="total-label">Item Discount</div>
-        <div class="total-value" id="itemDiscountTotal">Rs 0</div>
-      </div>
-
-      <div class="total-box">
-        <div class="total-label">After Item Discount</div>
-        <div class="total-value" id="netTotal">Rs 0</div>
-      </div>
-
-      <div class="total-box">
-        <div class="total-label">Global Discount</div>
-        <div class="total-value" id="globalDiscountTotal">Rs 0</div>
-      </div>
-
-      <div class="total-box">
-        <div class="total-label">Tax / GST</div>
-        <div class="total-value" id="taxTotal">Rs 0</div>
-      </div>
-
-      <div class="total-box">
-        <div class="total-label">Labour + Freight</div>
-        <div class="total-value" id="extraTotal">Rs 0</div>
-      </div>
-
-      <div class="total-box grand">
-        <div class="total-label">GRAND TOTAL</div>
-        <div class="total-value" id="grandTotal">Rs 0</div>
-      </div>
-
-      <div class="total-box">
-        <div class="total-label">Paid</div>
-        <div class="total-value" id="paidTotal">Rs 0</div>
-      </div>
-
-      <div class="total-box">
-        <div class="total-label">BALANCE</div>
-        <div class="total-value" id="balanceTotal">Rs 0</div>
-      </div>
-
-    </div>
-  </section>
-
-  <div class="footer">
-    Aluminium Quotation Pro • Data stored locally on this device
-  </div>
-
-</div>
-
-
-<!-- CUSTOMER MODAL -->
-<div class="modal" id="customerModal">
-  <div class="modal-box">
-
-    <div class="modal-head">
-      <div class="modal-title">Customer Details</div>
-      <button class="close" onclick="closeModal('customerModal')">✕</button>
-    </div>
-
-    <div class="form-grid">
-
-      <div class="field">
-        <label>NAME</label>
-        <input id="customerNameInput" placeholder="Customer name">
-      </div>
-
-      <div class="field">
-        <label>PHONE</label>
-        <input id="customerPhoneInput" type="tel" placeholder="03XXXXXXXXX">
-      </div>
-
-      <div class="field">
-        <label>EMAIL</label>
-        <input id="customerEmailInput" type="email" placeholder="Email">
-      </div>
-
-      <div class="field">
-        <label>ADDRESS</label>
-        <input id="customerAddressInput" placeholder="Address">
-      </div>
-
-    </div>
-
-    <div class="modal-actions">
-      <button onclick="closeModal('customerModal')">Cancel</button>
-      <button class="save" onclick="saveCustomer()">Save Customer</button>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- COMPANY MODAL -->
-<div class="modal" id="companyModal">
-  <div class="modal-box">
-
-    <div class="modal-head">
-      <div class="modal-title">Company Details</div>
-      <button class="close" onclick="closeModal('companyModal')">✕</button>
-    </div>
-
-    <div class="form-grid">
-
-      <div class="field">
-        <label>COMPANY NAME</label>
-        <input id="companyName" placeholder="Your company">
-      </div>
-
-      <div class="field">
-        <label>PHONE</label>
-        <input id="companyPhone" placeholder="Phone">
-      </div>
-
-      <div class="field">
-        <label>EMAIL</label>
-        <input id="companyEmail" placeholder="Email">
-      </div>
-
-      <div class="field">
-        <label>ADDRESS</label>
-        <input id="companyAddress" placeholder="Address">
-      </div>
-
-    </div>
-
-    <div class="modal-actions">
-      <button onclick="closeModal('companyModal')">Cancel</button>
-      <button class="save" onclick="saveCompany()">Save Company</button>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- RATE MANAGER -->
-<div class="modal" id="rateModal">
-  <div class="modal-box">
-
-    <div class="modal-head">
-      <div class="modal-title">Rate Manager</div>
-      <button class="close" onclick="closeModal('rateModal')">✕</button>
-    </div>
-
-    <button class="add-btn" style="margin-top:0" onclick="openAddRate()">
-      ＋ Add New Rate
-    </button>
-
-    <div class="rate-manager" style="margin-top:10px">
-      <table class="rate-table">
-        <thead>
-          <tr>
-            <th>Section</th>
-            <th>0.9</th>
-            <th>1.1</th>
-            <th>1.2</th>
-            <th>1.5</th>
-            <th>1.6</th>
-            <th>1.9</th>
-            <th>2.0</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody id="ratesBody"></tbody>
-      </table>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- ADD RATE -->
-<div class="modal" id="addRateModal">
-  <div class="modal-box">
-
-    <div class="modal-head">
-      <div class="modal-title">Add New Rate</div>
-      <button class="close" onclick="closeModal('addRateModal')">✕</button>
-    </div>
-
-    <div class="field">
-      <label>SECTION NAME</label>
-      <input id="newRateName" placeholder="Example: D-60">
-    </div>
-
-    <div class="field" style="margin-top:8px">
-      <label>0.9 / 1.1 / 1.2 MM RATE</label>
-      <input id="newRateGroup1" type="number" placeholder="Rate">
-    </div>
-
-    <div class="field" style="margin-top:8px">
-      <label>1.5 / 1.6 MM RATE</label>
-      <input id="newRateGroup2" type="number" placeholder="Rate">
-    </div>
-
-    <div class="field" style="margin-top:8px">
-      <label>1.9 / 2.0 MM RATE</label>
-      <input id="newRateGroup3" type="number" placeholder="Rate">
-    </div>
-
-    <div class="modal-actions">
-      <button onclick="closeModal('addRateModal')">Cancel</button>
-      <button class="save" onclick="saveNewRate()">Save Rate</button>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- HISTORY -->
-<div class="modal" id="historyModal">
-  <div class="modal-box">
-
-    <div class="modal-head">
-      <div class="modal-title">Quotation History</div>
-      <button class="close" onclick="closeModal('historyModal')">✕</button>
-    </div>
-
-    <div id="historyBody"></div>
-
-  </div>
-</div>
-
-
-<!-- SUMMARY -->
-<div class="modal" id="summaryModal">
-  <div class="modal-box">
-
-    <div class="modal-head">
-      <div class="modal-title">Quotation Summary</div>
-      <button class="close" onclick="closeModal('summaryModal')">✕</button>
-    </div>
-
-    <div id="summaryBody"></div>
-
-  </div>
-</div>
-
-
-<!-- CHECK APP -->
-<div class="modal" id="checkModal">
-  <div class="modal-box">
-
-    <div class="modal-head">
-      <div class="modal-title">🧪 App Check</div>
-      <button class="close" onclick="closeModal('checkModal')">✕</button>
-    </div>
-
-    <div id="checkBody"></div>
-
-  </div>
-</div>
-
-
-<script>
-
-/* =========================================================
-   DEFAULT RATES
-========================================================= */
-
-const DEFAULT_RATES = [
- ["DC-26F",880,1049,1244],
- ["DC-30F",754,911,1067],
- ["M-23",354,445,542],
- ["M-28",431,534,645],
- ["M-24",420,497,605],
- ["M-24A",371,474,572],
- ["DC-26C",776,957,1141],
- ["DC-30C",674,817,965],
- ["M-26F",680,811,955],
- ["M-26",582,710,836],
- ["M-30F",612,713,836],
- ["M-30",522,610,716],
- ["AA-23",534,699,863],
- ["AA-28",613,767,942],
- ["D-50",553,707,851],
- ["D-50A",490,584,710],
- ["D-50B",0,888,1093],
- ["D-51A",453,559,674],
- ["D-51F",530,665,804],
- ["D-54A",397,484,580],
- ["D-54F",486,582,702],
- ["D-46",861,1087,1333],
- ["D-48A",578,715,921],
- ["D-59",537,628,746],
- ["D-59A",550,676,821],
- ["D-40",480,542,667],
- ["DG-26A",0,1293,1580],
- ["DG-26",867,1120,1351],
- ["DG-26F",933,1233,1484],
- ["DG-23",513,638,759],
- ["DG-51A",0,735,886],
- ["DG-23A",572,691,821],
- ["HD-1",0,821,995],
- ["HD-2",0,821,995],
- ["HD-3",0,1273,1472],
- ["D-48B",0,595,0],
- ["D-29",274,0,0],
- ["B6",137,0,0]
-];
-
-let rates = [];
-let items = [];
-let customer = {};
-let company = {};
-let editingIndex = -1;
-
-
-/* =========================================================
-   INIT
-========================================================= */
-
-document.addEventListener("DOMContentLoaded",()=>{
-  loadData();
-  populateSections();
-  renderItems();
-  calculateTotals();
-  updateCustomerDisplay();
-  updateRate();
-  loadCompanyFields();
-});
-
-
-/* =========================================================
-   STORAGE
-========================================================= */
-
-function normalizeRates(raw){
-  if(!Array.isArray(raw)) return null;
-  const out = [];
-  raw.forEach(r => {
-    if(Array.isArray(r) && r.length >= 4){
-      out.push([String(r[0]), Number(r[1])||0, Number(r[2])||0, Number(r[3])||0]);
-    }else if(r && typeof r === "object" && r.section){
-      out.push([String(r.section), Number(r.g1)||0, Number(r.g2)||0, Number(r.g3)||0]);
-    }
-  });
-  return out;
-}
-
-function defaultRates(){
-  return DEFAULT_RATES.map(r => [r[0], r[1], r[2], r[3]]);
-}
-
-function loadData(){
-
-  try{
-    const saved = localStorage.getItem("aluminium_rates");
-    const parsed = saved ? normalizeRates(JSON.parse(saved)) : null;
-    rates = (parsed && parsed.length > 0) ? parsed : defaultRates();
-    if(!parsed || parsed.length === 0){
-      localStorage.setItem("aluminium_rates", JSON.stringify(rates));
-    }
-  }catch(e){
-    rates = defaultRates();
-  }
-
-  try{
-    customer = JSON.parse(
-      localStorage.getItem("quotation_customer") || "{}"
-    );
-  }catch(e){ customer = {}; }
-
-  try{
-    company = JSON.parse(
-      localStorage.getItem("quotation_company") || "{}"
-    );
-  }catch(e){ company = {}; }
-
-  try{
-    const draft = JSON.parse(
-      localStorage.getItem("quotation_draft") || "null"
-    );
-
-    if(draft){
-      items = draft.items || [];
-
-      setValue("globalDiscount",draft.globalDiscount);
-      setValue("tax",draft.tax);
-      setValue("labour",draft.labour);
-      setValue("freight",draft.freight);
-      setValue("previousBalance",draft.previousBalance);
-      setValue("paid",draft.paid !== undefined ? draft.paid : draft.amountPaid);
-      setValue("notes",draft.notes);
-    }
-  }catch(e){}
-}
-
-function saveDraft(){
-
-  const draft = {
-    items,
-    globalDiscount:getNumber("globalDiscount"),
-    tax:getNumber("tax"),
-    labour:getNumber("labour"),
-    freight:getNumber("freight"),
-    previousBalance:getNumber("previousBalance"),
-    paid:getNumber("paid"),
-    notes:document.getElementById("notes").value
-  };
-
-  localStorage.setItem(
-    "quotation_draft",
-    JSON.stringify(draft)
-  );
-}
-
-
-/* =========================================================
-   HELPERS
-========================================================= */
-
-function getNumber(id){
-  return Number(document.getElementById(id).value) || 0;
-}
-
-function setValue(id,value){
-  if(value !== undefined && value !== null){
-    document.getElementById(id).value = value;
-  }
-}
-
-function money(value){
-  return "Rs " + Number(value || 0).toLocaleString("en-PK",{
-    maximumFractionDigits:2
-  });
-}
-
-function escapeHtml(value){
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-}
-
-
-/* =========================================================
-   RATES
-========================================================= */
-
-function rateGroup(thickness){
-
-  const t = Number(thickness);
-
-  if(t <= 1.2) return 1;
-  if(t <= 1.6) return 2;
-  return 3;
-}
-
-function getRate(section,thickness){
-
-  const row = rates.find(r=>r[0] === section);
-
-  if(!row) return 0;
-
-  const group = rateGroup(thickness);
-
-  return Number(row[group]) || 0;
-}
-
-function populateSections(){
-
-  const select = document.getElementById("section");
-
-  const current = select.value;
-
-  select.innerHTML =
-    `<option value="">Select Section</option>` +
-    rates.map(r=>
-      `<option value="${escapeHtml(r[0])}">${escapeHtml(r[0])}</option>`
-    ).join("");
-
-  if(current){
-    select.value = current;
-  }
-}
-
-function updateRate(){
-
-  const section = document.getElementById("section").value;
-  const thickness = document.getElementById("thickness").value;
-
-  const rate = getRate(section,thickness);
-
-  document.getElementById("rate").value =
-    section ? rate : "";
-
-  renderRateChips();
-}
-
-function renderRateChips(){
-
-  const section = document.getElementById("section").value;
-  const box = document.getElementById("rateChips");
-
-  const thicknesses = [
-    ["0.9",1],
-    ["1.1",1],
-    ["1.2",1],
-    ["1.5",2],
-    ["1.6",2],
-    ["1.9",3],
-    ["2.0",3]
-  ];
-
-  box.innerHTML = thicknesses.map(t=>{
-
-    const value = section
-      ? getRate(section,t[0])
-      : 0;
-
-    const active =
-      t[0] === document.getElementById("thickness").value;
-
-    return `
-      <div class="rate-chip ${active ? "active":""}">
-        ${t[0]} = ${value}
-      </div>
-    `;
-
-  }).join("");
-}
-
-
-/* =========================================================
-   COLOUR
-========================================================= */
-
-function toggleCustomColour(){
-
-  const value =
-    document.getElementById("colour").value;
-
-  document.getElementById("customColourBox").style.display =
-    value === "Custom" ? "block" : "none";
-}
-
-function selectedColour(){
-
-  const colour =
-    document.getElementById("colour").value;
-
-  if(colour === "Custom"){
-    return document.getElementById("customColour").value.trim() || "Custom";
-  }
-
-  return colour;
-}
-
-
-/* =========================================================
-   SIZE CALCULATION
-========================================================= */
-
-function parseSize(value){
-
-  value = String(value || "").trim();
-
-  if(!value) return 0;
-
-  const parts = value
-    .replace(/×/g,"x")
-    .replace(/\*/g,"x")
-    .split(/x/i)
-    .map(v=>Number(v.trim()))
-    .filter(v=>!isNaN(v) && v > 0);
-
-  if(parts.length >= 2){
-    return parts[0] * parts[1];
-  }
-
-  const n = Number(value);
-
-  return isNaN(n) ? 0 : n;
-}
-
-
-/* =========================================================
-   ADD ITEM
-========================================================= */
-
-function addItem(){
-
-  const section =
-    document.getElementById("section").value;
-
-  const size =
-    document.getElementById("size").value.trim();
-
-  const quantity =
-    getNumber("quantity");
-
-  const thickness =
-    document.getElementById("thickness").value;
-
-  const rate =
-    getNumber("rate");
-
-  const discount =
-    getNumber("itemDiscount");
-
-  if(!section){
-    alert("Please select Section.");
-    return;
-  }
-
-  if(!size){
-    alert("Please enter Length / Size.");
-    return;
-  }
-
-  if(quantity <= 0){
-    alert("Please enter Quantity.");
-    return;
-  }
-
-  if(rate <= 0){
-    alert("Rate is not available for this section/thickness.");
-    return;
-  }
-
-  const area = parseSize(size);
-
-  if(area <= 0){
-    alert("Invalid Length / Size.");
-    return;
-  }
-
-  const amount =
-    area * quantity * rate;
-
-  const discountAmount =
-    amount * discount / 100;
-
-  const afterDiscount =
-    amount - discountAmount;
-
-  const item = {
-    section,
-    colour:selectedColour(),
-    thickness,
-    size,
-    area,
-    quantity,
-    rate,
-    discount,
-    amount,
-    discountAmount,
-    afterDiscount
-  };
-
-  if(editingIndex >= 0){
-
-    items[editingIndex] = item;
-    editingIndex = -1;
-
-  }else{
-
-    items.push(item);
-
-  }
-
-  renderItems();
-  calculateTotals();
-
-  /*
-    After adding:
-    Section blank
-    Size blank
-    Quantity blank
-    Rate blank
-
-    Colour / Thickness / Discount remain selected
-  */
-
-  document.getElementById("section").value = "";
-  document.getElementById("size").value = "";
-  document.getElementById("quantity").value = "";
-  document.getElementById("rate").value = "";
-
-  renderRateChips();
-}
-
-
-/* =========================================================
-   RENDER ITEMS
-========================================================= */
-
-function renderItems(){
-
-  const body =
-    document.getElementById("itemsBody");
-
-  if(items.length === 0){
-
-    body.innerHTML = `
-      <tr>
-        <td colspan="11" class="empty">
-          No items added yet
-        </td>
-      </tr>
-    `;
-
-    return;
-  }
-
-  body.innerHTML = items.map((item,index)=>{
-
-    return `
-      <tr>
-
-        <td>${index+1}</td>
-
-        <td>${escapeHtml(item.section)}</td>
-
-        <td>${escapeHtml(item.colour)}</td>
-
-        <td>${escapeHtml(item.thickness)} mm</td>
-
-        <td>${escapeHtml(item.size)}</td>
-
-        <td>${item.quantity}</td>
-
-        <td>${money(item.rate)}</td>
-
-        <td>${money(item.amount)}</td>
-
-        <td>${item.discount}%</td>
-
-        <td>${money(item.afterDiscount)}</td>
-
-        <td>
-          <div class="row-actions">
-            <button class="edit" onclick="editItem(${index})">Edit</button>
-            <button class="copy" onclick="copyItem(${index})">Copy</button>
-            <button class="delete" onclick="deleteItem(${index})">Del</button>
-          </div>
-        </td>
-
-      </tr>
-    `;
-
-  }).join("");
-}
-
-
-/* =========================================================
-   EDIT / COPY / DELETE
-========================================================= */
-
-function editItem(index){
-
-  const item = items[index];
-
-  document.getElementById("section").value =
-    item.section;
-
-  document.getElementById("colour").value =
-    [
-      "Champagne",
-      "White 9016",
-      "Matt Black",
-      "Silver",
-      "White",
-      "Brown",
-      "Golden",
-      "Wood"
-    ].includes(item.colour)
-      ? item.colour
-      : "Custom";
-
-  toggleCustomColour();
-
-  if(document.getElementById("colour").value === "Custom"){
-    document.getElementById("customColour").value =
-      item.colour;
-  }
-
-  document.getElementById("thickness").value =
-    item.thickness;
-
-  document.getElementById("size").value =
-    item.size;
-
-  document.getElementById("quantity").value =
-    item.quantity;
-
-  document.getElementById("itemDiscount").value =
-    item.discount;
-
-  editingIndex = index;
-
-  updateRate();
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-}
-
-function copyItem(index){
-
-  const copy =
-    JSON.parse(JSON.stringify(items[index]));
-
-  items.push(copy);
-
-  renderItems();
-  calculateTotals();
-}
-
-function deleteItem(index){
-
-  if(!confirm("Delete this item?")) return;
-
-  items.splice(index,1);
-
-  renderItems();
-  calculateTotals();
-}
-
-function clearItems(){
-
-  if(!items.length) return;
-
-  if(!confirm("Clear all quotation items?")) return;
-
-  items = [];
-
-  renderItems();
-  calculateTotals();
-}
-
-
-/* =========================================================
-   TOTALS
-========================================================= */
-
-function calculateTotals(){
-
-  let gross = 0;
-  let itemDiscount = 0;
-
-  items.forEach(item=>{
-    gross += Number(item.amount) || 0;
-    itemDiscount += Number(item.discountAmount) || 0;
-  });
-
-  const net =
-    gross - itemDiscount;
-
-  const globalDiscountPercent =
-    getNumber("globalDiscount");
-
-  const globalDiscountAmount =
-    net * globalDiscountPercent / 100;
-
-  const afterGlobal =
-    net - globalDiscountAmount;
-
-  const taxPercent =
-    getNumber("tax");
-
-  const taxAmount =
-    afterGlobal * taxPercent / 100;
-
-  const labour =
-    getNumber("labour");
-
-  const freight =
-    getNumber("freight");
-
-  const previousBalance =
-    getNumber("previousBalance");
-
-  const paid =
-    getNumber("paid");
-
-  const grandTotal =
-    afterGlobal +
-    taxAmount +
-    labour +
-    freight +
-    previousBalance;
-
-  const balance =
-    grandTotal - paid;
-
-  document.getElementById("grossTotal").textContent =
-    money(gross);
-
-  document.getElementById("itemDiscountTotal").textContent =
-    money(itemDiscount);
-
-  document.getElementById("netTotal").textContent =
-    money(net);
-
-  document.getElementById("globalDiscountTotal").textContent =
-    money(globalDiscountAmount);
-
-  document.getElementById("taxTotal").textContent =
-    money(taxAmount);
-
-  document.getElementById("extraTotal").textContent =
-    money(labour + freight);
-
-  document.getElementById("grandTotal").textContent =
-    money(grandTotal);
-
-  document.getElementById("paidTotal").textContent =
-    money(paid);
-
-  document.getElementById("balanceTotal").textContent =
-    money(balance);
-
-  saveDraft();
-}
-
-
-/* =========================================================
-   CUSTOMER
-========================================================= */
-
-function saveCustomer(){
-
-  customer = {
-    name:document.getElementById("customerNameInput").value.trim(),
-    phone:document.getElementById("customerPhoneInput").value.trim(),
-    email:document.getElementById("customerEmailInput").value.trim(),
-    address:document.getElementById("customerAddressInput").value.trim()
-  };
-
-  localStorage.setItem(
-    "quotation_customer",
-    JSON.stringify(customer)
-  );
-
-  updateCustomerDisplay();
-
-  closeModal("customerModal");
-}
-
-function updateCustomerDisplay(){
-
-  document.getElementById("customerName").textContent =
-    customer.name || "Walk-in Customer";
-
-  document.getElementById("customerPhone").textContent =
-    customer.phone || "No phone added";
-
-  document.getElementById("customerNameInput").value =
-    customer.name || "";
-
-  document.getElementById("customerPhoneInput").value =
-    customer.phone || "";
-
-  document.getElementById("customerEmailInput").value =
-    customer.email || "";
-
-  document.getElementById("customerAddressInput").value =
-    customer.address || "";
-}
-
-
-/* =========================================================
-   COMPANY
-========================================================= */
-
-function saveCompany(){
-
-  company = {
-    name:document.getElementById("companyName").value.trim(),
-    phone:document.getElementById("companyPhone").value.trim(),
-    email:document.getElementById("companyEmail").value.trim(),
-    address:document.getElementById("companyAddress").value.trim()
-  };
-
-  localStorage.setItem(
-    "quotation_company",
-    JSON.stringify(company)
-  );
-
-  closeModal("companyModal");
-}
-
-function loadCompanyFields(){
-
-  setValue("companyName",company.name);
-  setValue("companyPhone",company.phone);
-  setValue("companyEmail",company.email);
-  setValue("companyAddress",company.address);
-}
-
-
-/* =========================================================
-   RATE MANAGER
-========================================================= */
-
-function openRateManager(){
-
-  renderRates();
-
-  openModal("rateModal");
-}
-
-function renderRates(){
-
-  const body =
-    document.getElementById("ratesBody");
-
-  body.innerHTML = rates.map((r,index)=>{
-
-    return `
-      <tr>
-
-        <td>${escapeHtml(r[0])}</td>
-
-        <td><input type="number" value="${r[1]}"
-          onchange="updateRateValue(${index},1,this.value)"></td>
-
-        <td><input type="number" value="${r[1]}"
-          onchange="updateRateValue(${index},1,this.value)"></td>
-
-        <td><input type="number" value="${r[1]}"
-          onchange="updateRateValue(${index},1,this.value)"></td>
-
-        <td><input type="number" value="${r[2]}"
-          onchange="updateRateValue(${index},2,this.value)"></td>
-
-        <td><input type="number" value="${r[2]}"
-          onchange="updateRateValue(${index},2,this.value)"></td>
-
-        <td><input type="number" value="${r[3]}"
-          onchange="updateRateValue(${index},3,this.value)"></td>
-
-        <td><input type="number" value="${r[3]}"
-          onchange="updateRateValue(${index},3,this.value)"></td>
-
-        <td>
-          <button
-            class="small-btn"
-            onclick="deleteRate(${index})">
-            Delete
-          </button>
-        </td>
-
-      </tr>
-    `;
-
-  }).join("");
-}
-
-function updateRateValue(index,group,value){
-
-  rates[index][group] =
-    Number(value) || 0;
-
-  localStorage.setItem(
-    "aluminium_rates",
-    JSON.stringify(rates)
-  );
-
-  updateRate();
-}
-
-function deleteRate(index){
-
-  if(!confirm("Delete this rate?")) return;
-
-  rates.splice(index,1);
-
-  localStorage.setItem(
-    "aluminium_rates",
-    JSON.stringify(rates)
-  );
-
-  populateSections();
-  renderRates();
-  updateRate();
-}
-
-function openAddRate(){
-
-  closeModal("rateModal");
-
-  document.getElementById("newRateName").value = "";
-  document.getElementById("newRateGroup1").value = "";
-  document.getElementById("newRateGroup2").value = "";
-  document.getElementById("newRateGroup3").value = "";
-
-  openModal("addRateModal");
-}
-
-function saveNewRate(){
-
-  const name =
-    document.getElementById("newRateName").value.trim();
-
-  const g1 =
-    getNumber("newRateGroup1");
-
-  const g2 =
-    getNumber("newRateGroup2");
-
-  const g3 =
-    getNumber("newRateGroup3");
-
-  if(!name){
-    alert("Enter section name.");
-    return;
-  }
-
-  if(rates.some(r=>r[0].toLowerCase() === name.toLowerCase())){
-    alert("This section already exists.");
-    return;
-  }
-
-  rates.push([name,g1,g2,g3]);
-
-  localStorage.setItem(
-    "aluminium_rates",
-    JSON.stringify(rates)
-  );
-
-  populateSections();
-
-  closeModal("addRateModal");
-
-  openRateManager();
-}
-
-
-/* =========================================================
-   NEW QUOTATION
-========================================================= */
-
-function newQuotation(){
-
-  if(items.length){
-
-    if(!confirm(
-      "Start a new quotation? Current items will be cleared."
-    )) return;
-
-  }
-
-  items = [];
-  editingIndex = -1;
-
-  document.getElementById("quotationNo").textContent =
-    generateQuotationNo();
-
-  document.getElementById("section").value = "";
-  document.getElementById("size").value = "";
-  document.getElementById("quantity").value = "";
-  document.getElementById("rate").value = "";
-
-  document.getElementById("globalDiscount").value = 0;
-  document.getElementById("tax").value = 0;
-  document.getElementById("labour").value = 0;
-  document.getElementById("freight").value = 0;
-  document.getElementById("previousBalance").value = 0;
-  document.getElementById("paid").value = 0;
-  document.getElementById("notes").value = "";
-
-  renderItems();
-  calculateTotals();
-}
-
-function generateQuotationNo(){
-
-  const now = new Date();
-
-  return "QT-" +
-    now.getFullYear().toString().slice(-2) +
-    String(now.getMonth()+1).padStart(2,"0") +
-    String(now.getDate()).padStart(2,"0") +
-    "-" +
-    String(Date.now()).slice(-4);
-}
-
-
-/* =========================================================
-   SAVE / HISTORY
-========================================================= */
-
-function saveQuotation(){
-
-  const gross =
-    items.reduce((sum,i)=>sum + Number(i.amount || 0),0);
-
-  const globalDiscount =
-    getNumber("globalDiscount");
-
-  const tax =
-    getNumber("tax");
-
-  const labour =
-    getNumber("labour");
-
-  const freight =
-    getNumber("freight");
-
-  const previousBalance =
-    getNumber("previousBalance");
-
-  const paid =
-    getNumber("paid");
-
-  const itemDiscount =
-    items.reduce(
-      (sum,i)=>sum + Number(i.discountAmount || 0),
-      0
-    );
-
-  const net =
-    gross - itemDiscount;
-
-  const afterGlobal =
-    net - net * globalDiscount / 100;
-
-  const taxAmount =
-    afterGlobal * tax / 100;
-
-  const grand =
-    afterGlobal +
-    taxAmount +
-    labour +
-    freight +
-    previousBalance;
-
-  const record = {
-
-    id:Date.now(),
-
-    quotationNo:
-      document.getElementById("quotationNo").textContent,
-
-    date:new Date().toLocaleString(),
-
-    customer:{...customer},
-
-    items:JSON.parse(JSON.stringify(items)),
-
-    totals:{
-      gross,
-      itemDiscount,
-      net,
-      globalDiscount,
-      tax,
-      labour,
-      freight,
-      previousBalance,
-      paid,
-      grand,
-      balance:grand-paid
-    },
-
-    notes:
-      document.getElementById("notes").value
-
-  };
-
-  const history =
-    JSON.parse(
-      localStorage.getItem("quotation_history") || "[]"
-    );
-
-  history.unshift(record);
-
-  localStorage.setItem(
-    "quotation_history",
-    JSON.stringify(history.slice(0,100))
-  );
-
-  alert("Quotation saved successfully.");
-}
-
-function openHistory(){
-
-  renderHistory();
-
-  openModal("historyModal");
-}
-
-function renderHistory(){
-
-  const body =
-    document.getElementById("historyBody");
-
-  const history =
-    JSON.parse(
-      localStorage.getItem("quotation_history") || "[]"
-    );
-
-  if(!history.length){
-
-    body.innerHTML =
-      `<div class="empty">No quotation history.</div>`;
-
-    return;
-  }
-
-  body.innerHTML =
-    history.map((h,index)=>`
-
-      <div class="history-item">
-
-        <div class="history-top">
-          <div class="history-name">
-            ${escapeHtml(h.customer?.name || "Walk-in Customer")}
-          </div>
-
-          <div class="history-date">
-            ${escapeHtml(h.date)}
-          </div>
-        </div>
-
-        <div class="history-date">
-          ${escapeHtml(h.quotationNo)}
-        </div>
-
-        <div class="history-total">
-          ${money(h.totals.grand)}
-        </div>
-
-        <div class="modal-actions">
-
-          <button onclick="loadHistory(${index})">
-            Open
-          </button>
-
-          <button onclick="deleteHistory(${index})">
-            Delete
-          </button>
-
-        </div>
-
-      </div>
-
-    `).join("");
-}
-
-function loadHistory(index){
-
-  const history =
-    JSON.parse(
-      localStorage.getItem("quotation_history") || "[]"
-    );
-
-  const h = history[index];
-
-  if(!h) return;
-
-  items =
-    JSON.parse(JSON.stringify(h.items || []));
-
-  customer =
-    JSON.parse(JSON.stringify(h.customer || {}));
-
-  document.getElementById("quotationNo").textContent =
-    h.quotationNo || generateQuotationNo();
-
-  setValue("globalDiscount",h.totals.globalDiscount);
-  setValue("tax",h.totals.tax);
-  setValue("labour",h.totals.labour);
-  setValue("freight",h.totals.freight);
-  setValue("previousBalance",h.totals.previousBalance);
-  setValue("paid",h.totals.paid);
-  setValue("notes",h.notes || "");
-
-  updateCustomerDisplay();
-  renderItems();
-  calculateTotals();
-
-  closeModal("historyModal");
-}
-
-function deleteHistory(index){
-
-  if(!confirm("Delete this quotation from history?")) return;
-
-  const history =
-    JSON.parse(
-      localStorage.getItem("quotation_history") || "[]"
-    );
-
-  history.splice(index,1);
-
-  localStorage.setItem(
-    "quotation_history",
-    JSON.stringify(history)
-  );
-
-  renderHistory();
-}
-
-
-/* =========================================================
-   SUMMARY
-========================================================= */
-
-function openSummary(){
-
-  const gross =
-    items.reduce((s,i)=>s+Number(i.amount||0),0);
-
-  const itemDiscount =
-    items.reduce((s,i)=>s+Number(i.discountAmount||0),0);
-
-  const net =
-    gross-itemDiscount;
-
-  const gd =
-    net*getNumber("globalDiscount")/100;
-
-  const afterGD =
-    net-gd;
-
-  const tax =
-    afterGD*getNumber("tax")/100;
-
-  const grand =
-    afterGD+
-    tax+
-    getNumber("labour")+
-    getNumber("freight")+
-    getNumber("previousBalance");
-
-  const paid =
-    getNumber("paid");
-
-  const balance =
-    grand-paid;
-
-  document.getElementById("summaryBody").innerHTML = `
-
-    <div class="summary-row">
-      <span>Customer</span>
-      <strong>${escapeHtml(customer.name || "Walk-in Customer")}</strong>
-    </div>
-
-    <div class="summary-row">
-      <span>Total Items</span>
-      <strong>${items.length}</strong>
-    </div>
-
-    <div class="summary-row">
-      <span>Gross</span>
-      <strong>${money(gross)}</strong>
-    </div>
-
-    <div class="summary-row">
-      <span>Item Discount</span>
-      <strong>${money(itemDiscount)}</strong>
-    </div>
-
-    <div class="summary-row">
-      <span>Global Discount</span>
-      <strong>${money(gd)}</strong>
-    </div>
-
-    <div class="summary-row">
-      <span>Tax / GST</span>
-      <strong>${money(tax)}</strong>
-    </div>
-
-    <div class="summary-row">
-      <span>Labour</span>
-      <strong>${money(getNumber("labour"))}</strong>
-    </div>
-
-    <div class="summary-row">
-      <span>Freight</span>
-      <strong>${money(getNumber("freight"))}</strong>
-    </div>
-
-    <div class="summary-row">
-      <span>Previous Balance</span>
-      <strong>${money(getNumber("previousBalance"))}</strong>
-    </div>
-
-    <div class="summary-row">
-      <span>Grand Total</span>
-      <strong>${money(grand)}</strong>
-    </div>
-
-    <div class="summary-row">
-      <span>Paid</span>
-      <strong>${money(paid)}</strong>
-    </div>
-
-    <div class="summary-row">
-      <span>Balance</span>
-      <strong>${money(balance)}</strong>
-    </div>
-
-  `;
-
-  openModal("summaryModal");
-}
-
-
-/* =========================================================
-   BACKUP / RESTORE
-========================================================= */
-
-function backupData(){
-
-  const data = {
-
-    rates,
-
-    customer,
-
-    company,
-
-    history:
-      JSON.parse(
-        localStorage.getItem("quotation_history") || "[]"
-      ),
-
-    draft:
-      JSON.parse(
-        localStorage.getItem("quotation_draft") || "{}"
-      )
-
-  };
-
-  const blob =
-    new Blob(
-      [JSON.stringify(data,null,2)],
-      {type:"application/json"}
-    );
-
-  const url =
-    URL.createObjectURL(blob);
-
-  const a =
-    document.createElement("a");
-
-  a.href = url;
-  a.download =
-    "aluminium-quotation-backup.json";
-
-  a.click();
-
-  URL.revokeObjectURL(url);
-}
-
-function restoreData(event){
-
-  const file =
-    event.target.files[0];
-
-  if(!file) return;
-
-  const reader =
-    new FileReader();
-
-  reader.onload = function(){
-
-    try{
-
-      const data =
-        JSON.parse(reader.result);
-
-      if(data.rates){
-
-        const parsed = normalizeRates(data.rates);
-
-        if(parsed && parsed.length > 0){
-
-          rates = parsed;
-
-          localStorage.setItem(
-            "aluminium_rates",
-            JSON.stringify(rates)
-          );
-
-        }else{
-
-          throw new Error("No valid rates in backup");
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aluminium Quotation Pro Premium</title>
+    <!-- html2pdf Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        /* --- 1. BASE STYLES & ROYAL THEME --- */
+        :root {
+            --royal-blue: #0f172a;
+            --royal-gold: #d4af37;
+            --light-gold: #fef9c3;
+            --soft-bg: #f8fafc;
+            --border-color: #cbd5e1;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
         }
 
-      }
-
-      if(data.customer){
-
-        customer = data.customer;
-
-        localStorage.setItem(
-          "quotation_customer",
-          JSON.stringify(customer)
-        );
-
-      }
-
-      if(data.company){
-
-        company = data.company;
-
-        localStorage.setItem(
-          "quotation_company",
-          JSON.stringify(company)
-        );
-
-      }
-
-      if(data.history){
-
-        localStorage.setItem(
-          "quotation_history",
-          JSON.stringify(data.history)
-        );
-
-      }
-
-      if(data.draft){
-
-        localStorage.setItem(
-          "quotation_draft",
-          JSON.stringify(data.draft)
-        );
-
-      }
-
-      alert("Backup restored successfully.");
-
-      location.reload();
-
-    }catch(e){
-
-      alert("Invalid backup file.");
-
-    }
-
-  };
-
-  reader.readAsText(file);
-}
-
-
-/* =========================================================
-   PRINT
-========================================================= */
-
-function printQuotation(){
-
-  calculateTotals();
-
-  window.print();
-}
-
-
-/* =========================================================
-   WHATSAPP
-========================================================= */
-
-function sendWhatsApp(){
-
-  const grand =
-    document.getElementById("grandTotal").textContent;
-
-  const balance =
-    document.getElementById("balanceTotal").textContent;
-
-  let text =
-`ALUMINIUM QUOTATION
-
-Quotation: ${document.getElementById("quotationNo").textContent}
-
-Customer: ${customer.name || "Walk-in Customer"}
-Phone: ${customer.phone || "-"}
-
-ITEMS:
-`;
-
-  items.forEach((item,index)=>{
-
-    text +=
-`${index+1}. ${item.section} | ${item.colour} | ${item.thickness}mm | ${item.size} | Qty ${item.quantity} | ${money(item.afterDiscount)}
-`;
-
-  });
-
-  text +=
-`
-Grand Total: ${grand}
-Balance: ${balance}
-
-Thank you.`;
-
-  const url =
-    "https://wa.me/?text=" +
-    encodeURIComponent(text);
-
-  window.open(url,"_blank");
-}
-
-
-/* =========================================================
-   CHECK APP
-========================================================= */
-
-function checkApp(){
-
-  const tests = [];
-
-  function test(name,condition){
-
-    tests.push({
-      name,
-      ok:Boolean(condition)
-    });
-
-  }
-
-  /* Test 1 */
-  test(
-    "Rates loaded",
-    Array.isArray(rates) && rates.length > 0
-  );
-
-  /* Test 2 */
-  test(
-    "Sections available",
-    document.getElementById("section").options.length > 1
-  );
-
-  /* Test 3 */
-  test(
-    "Rate engine",
-    getRate("DC-26F","0.9") === 880
-  );
-
-  /* Test 4 */
-  test(
-    "Rate group 2",
-    getRate("DC-26F","1.5") === 1049
-  );
-
-  /* Test 5 */
-  test(
-    "Rate group 3",
-    getRate("DC-26F","1.9") === 1244
-  );
-
-  /* Test 6 */
-  test(
-    "Size 10 x 4",
-    parseSize("10 x 4") === 40
-  );
-
-  /* Test 7 */
-  test(
-    "Size 10 × 4",
-    parseSize("10 × 4") === 40
-  );
-
-  /* Test 8 */
-  test(
-    "Single size",
-    parseSize("10") === 10
-  );
-
-  /* Test 9 */
-  test(
-    "Money formatter",
-    money(1000).includes("1,000")
-  );
-
-  /* Test 10 */
-  test(
-    "Local storage",
-    typeof localStorage !== "undefined"
-  );
-
-  /* Test 11 */
-  test(
-    "Customer system",
-    typeof saveCustomer === "function"
-  );
-
-  /* Test 12 */
-  test(
-    "Backup system",
-    typeof backupData === "function"
-  );
-
-  /* Test 13 */
-  test(
-    "Print system",
-    typeof printQuotation === "function"
-  );
-
-  /* Test 14 */
-  test(
-    "WhatsApp system",
-    typeof sendWhatsApp === "function"
-  );
-
-  const passed =
-    tests.filter(t=>t.ok).length;
-
-  const total =
-    tests.length;
-
-  document.getElementById("checkBody").innerHTML = `
-
-    <div class="total-box" style="margin-bottom:8px">
-      <div class="total-label">CHECK RESULT</div>
-      <div class="total-value">
-        ${passed} / ${total} Passed
-      </div>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e2e8f0;
+            margin: 0;
+            padding: 5px;
+            color: var(--text-dark);
+        }
+        * { box-sizing: border-box; }
+        .font-bold { font-weight: 700; }
+        .text-right { text-align: right; }
+
+        .app {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(15, 23, 42, 0.1);
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            border-top: 6px solid var(--royal-blue);
+            position: relative;
+        }
+
+        /* --- WATERMARK --- */
+        .watermark {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 80px;
+            color: rgba(15, 23, 42, 0.02);
+            font-weight: 900;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+            text-transform: uppercase;
+        }
+
+        /* --- 2. CONTROLS (Top Bar) --- */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, var(--royal-blue), #1e3a8a);
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            color: white;
+            box-shadow: 0 8px 15px -3px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+        .controls strong { font-size: 20px; letter-spacing: 1px; color: white; }
+        .controls span { background: var(--royal-gold); color: var(--royal-blue); padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: 900; margin-left: 8px; text-transform: uppercase;}
+
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+        .btn {
+            border: none; padding: 8px 14px; border-radius: 6px;
+            font-size: 12px; font-weight: 800; color: white; cursor: pointer;
+            transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .btn-blue { background: #2563eb; }
+        .btn-orange { background: #f97316; }
+        .btn-red { background: #ef4444; }
+        .btn-green { background: #10b981; }
+        .btn-purple { background: linear-gradient(135deg, var(--royal-gold), #b8860b); color: #000; }
+
+        /* --- LOGO & META --- */
+        .header-top-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; position: relative; z-index: 2;}
+        .logo-section { text-align: left; }
+        .logo-img {
+            max-height: 80px; max-width: 200px; cursor: pointer; object-fit: contain;
+            border: 2px dashed var(--border-color); padding: 4px; border-radius: 8px; transition: 0.3s;
+        }
+        .logo-img:hover { border-color: var(--royal-gold); background: var(--soft-bg); }
+        .logo-hint { font-size: 10px; margin-top: 4px; color: var(--text-muted); }
+
+        .quote-meta { text-align: right; background: var(--soft-bg); padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); }
+        .quote-meta .form-row { justify-content: flex-end; margin-bottom: 4px;}
+        .quote-meta .label { width: auto; margin-right: 8px; color: var(--royal-blue); font-size: 12px; font-weight: bold; }
+        .quote-meta input { width: 110px; text-align: right; background: white; font-weight: bold; font-size: 12px; padding: 4px; border: 1px solid #e2e8f0; border-radius: 4px;}
+
+        /* --- 3. INVOICE PROFILE STRIP (compact display, edited via modals) --- */
+        .invoice-head {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; position: relative; z-index: 2;
+        }
+        .inv-card {
+            background: #ffffff; border: 1px solid var(--border-color); padding: 12px;
+            border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+        .inv-card.from { border-top: 3px solid var(--royal-gold); }
+        .inv-card.billto { border-top: 3px solid #3b82f6; }
+        .inv-tag {
+            font-size: 10px; font-weight: 900; letter-spacing: 1px; color: var(--text-muted);
+            text-transform: uppercase; margin-bottom: 6px; padding-bottom: 6px;
+            border-bottom: 1px solid var(--soft-bg);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .inv-name { font-size: 16px; font-weight: 900; color: var(--royal-blue); text-transform: uppercase; line-height: 1.3; }
+        .inv-line { font-size: 12px; color: var(--text-muted); font-weight: 600; margin-top: 3px; line-height: 1.4; word-wrap: break-word; }
+        .edit-mini { background: none; border: none; cursor: pointer; font-size: 14px; padding: 2px 4px; border-radius: 4px; }
+        .edit-mini:hover { background: var(--soft-bg); }
+
+        .form-row { display: flex; align-items: center; margin-bottom: 6px; }
+        .label { width: 70px; font-weight: 700; font-size: 11px; color: var(--text-muted); }
+        input.clean {
+            flex: 1; padding: 5px 8px; border: 1px solid #e2e8f0; border-radius: 4px;
+            outline: none; font-size: 12px; background: var(--soft-bg); transition: 0.3s; color: var(--text-dark); font-weight: 600;
+        }
+        input.clean:focus { border-color: var(--royal-gold); background: white; }
+        .uppercase { text-transform: uppercase; }
+
+        /* --- 4. PROFESSIONAL TABLE --- */
+        .table-wrap {
+            overflow-x: auto; -webkit-overflow-scrolling: touch;
+            border: 1px solid var(--royal-blue); border-radius: 8px 8px 0 0;
+            margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative; z-index: 2; background: white;
+        }
+        table { width: 100%; border-collapse: collapse; min-width: 850px; }
+
+        th {
+            background: var(--royal-blue); color: var(--royal-gold);
+            text-align: center; padding: 12px 5px; font-size: 13px;
+            border-right: 1px solid rgba(255,255,255,0.1); text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        th:last-child { border-right: none; }
+
+        td { padding: 8px 5px; border-bottom: 1px solid #e2e8f0; border-right: 1px solid var(--soft-bg); text-align: center; }
+        td:last-child { border-right: none; }
+
+        tbody tr:nth-child(even) { background-color: #f8fafc; }
+        tbody tr:hover { background-color: var(--light-gold); }
+
+        td input, td select {
+            width: 100%; border: 1px solid transparent; text-align: center; font-size: 14px;
+            font-weight: 700; background: transparent; padding: 8px 0; color: var(--royal-blue); border-radius: 4px;
+            -moz-appearance: textfield; transition: 0.2s;
+        }
+        td input:focus, td select:focus { background: white; border: 1px solid var(--royal-gold); outline: none; }
+        td input::-webkit-outer-spin-button, td input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+        .net-col { color: #b8860b; font-weight: 900 !important; background: var(--light-gold); font-size: 16px !important;}
+
+        /* --- 5. FOOTER & SIGNATURES --- */
+        .footer-wrapper { display: flex; flex-wrap: wrap; gap: 20px; margin-top: auto; align-items: flex-end; position: relative; z-index: 2;}
+
+        .signatures { flex: 1; min-width: 280px; display: flex; justify-content: space-around; margin-bottom: 15px;}
+        .sign-box { text-align: center; width: 140px; border-top: 2px solid var(--royal-blue); padding-top: 8px; font-weight: bold; color: var(--text-muted); font-size: 13px;}
+
+        .footer-totals { flex: 1; min-width: 300px; max-width: 380px; margin-left: auto; }
+        .box { background: white; padding: 20px; border-radius: 10px; border: 2px solid var(--royal-blue); box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08); }
+        .t-row { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 10px; align-items: center; color: var(--text-muted); font-weight: 700;}
+        .t-row strong { color: var(--royal-blue); font-size: 15px; }
+        .grand { border-top: 2px dashed var(--border-color); margin-top: 15px; padding-top: 15px; font-size: 18px; font-weight: 900; color: var(--royal-blue); }
+
+        .balance-box { background: linear-gradient(135deg, var(--light-gold), #fde047); padding: 15px; border-radius: 8px; margin-top: 15px; border: 1px solid #facc15; box-shadow: 0 4px 15px rgba(234, 179, 8, 0.15);}
+
+        .final-balance { background: var(--royal-blue); color: var(--royal-gold); padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 20px; display: flex; justify-content: space-between; font-weight: 900; box-shadow: 0 8px 15px rgba(15,23,42,0.3);}
+
+        /* --- 6. TERMS & CONDITIONS --- */
+        .terms-box {
+            margin-top: 30px; background: #f8fafc; border-left: 4px solid var(--royal-gold);
+            padding: 15px 20px; border-radius: 0 8px 8px 0; position: relative; z-index: 2;
+        }
+        .terms-box p { margin: 0 0 5px 0; color: var(--text-muted); font-size: 11px; line-height: 1.5; font-weight: 600;}
+        .terms-box .urdu { font-family: 'Jameel Noori Nastaleeq', Arial, sans-serif; text-align: right; direction: rtl; font-size: 15px; color: var(--royal-blue); font-weight: bold; margin-top: 8px;}
+
+        .thank-you { text-align:center; font-family: 'Georgia', serif; font-style: italic; font-size: 20px; color: var(--royal-gold); margin-top:20px; font-weight:bold; position: relative; z-index: 2;}
+
+        /* --- 7. MODALS --- */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); display: none; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(5px);}
+        .modal-overlay.active { display: flex; }
+        .modal { background: white; width: 95%; max-width: 650px; height: 90vh; border-radius: 12px; display: flex; flex-direction: column; padding: 25px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);}
+        .modal.compact { height: auto; max-height: 92vh; max-width: 480px; }
+        .modal-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px; margin-bottom: 15px; }
+        .modal-head h3 { margin: 0; font-size: 18px; color: var(--royal-blue); text-transform: uppercase; }
+        .modal-body .form-row { margin-bottom: 10px; }
+        .modal-body .label { width: 90px; font-size: 12px; }
+        .modal-body input.clean { font-size: 14px; padding: 9px 10px; }
+        .modal-foot { display: flex; justify-content: flex-end; margin-top: 20px; padding-top: 15px; border-top: 2px solid #e2e8f0; }
+        .rate-scroll { flex: 1; overflow: auto; border: 1px solid var(--border-color); margin-top: 15px; border-radius: 6px; }
+        .rate-table { width: 100%; min-width: 500px; border-collapse: collapse; }
+        .rate-table th { position: sticky; top: 0; background: var(--royal-blue); color:var(--royal-gold); z-index: 2; padding: 15px; font-size:14px; text-align: center; }
+        .rate-table td { padding: 8px; border-bottom: 1px solid var(--border-color); }
+        .rate-table input { border: 1px solid var(--border-color); border-radius: 4px; padding: 8px; text-align: center; width: 100%; font-weight:bold;}
+
+        /* --- 8. THE GUARANTEED NO-CUTTING PDF MODE (1000px Desktop Simulation) --- */
+        .pdf-mode {
+            padding: 40px !important;
+            width: 1000px !important; /* Forces a very wide, fixed container for the PDF Engine */
+            max-width: 1000px !important;
+            background: white !important;
+            margin: 0 auto !important;
+            overflow: visible !important;
+        }
+        .pdf-mode .controls, .pdf-mode .no-print { display: none !important; }
+
+        .pdf-mode .table-wrap {
+            overflow: visible !important;
+            border: 2px solid var(--royal-blue) !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+        }
+
+        .pdf-mode table {
+            min-width: 1000px !important;
+            width: 100% !important;
+            table-layout: fixed !important;
+        }
+
+        .pdf-mode .footer-wrapper {
+            flex-wrap: nowrap !important;
+            justify-content: space-between !important;
+        }
+
+        .pdf-mode .footer-totals {
+            width: 380px !important;
+            flex: none !important;
+        }
+
+        .pdf-mode td input, .pdf-mode td select {
+            min-width: 0 !important;
+            background: transparent !important;
+            border: none !important;
+        }
+
+        .pdf-mode .logo-img { border: none !important; }
+
+        /* PDF profile strip */
+        .pdf-mode .invoice-head { grid-template-columns: 1fr 1fr !important; gap: 15px !important; }
+        .pdf-mode .inv-card { border: 1px solid var(--border-color) !important; box-shadow: none !important; background: transparent !important; }
+        .pdf-mode .inv-name { color: var(--royal-blue) !important; font-size: 16px !important; }
+        .pdf-mode .inv-line { color: #000 !important; font-size: 13px !important; }
+        .pdf-mode .inv-tag { color: var(--royal-blue) !important; border-bottom: 1px solid var(--border-color) !important; }
+
+        /* 100% Mathematically Calculated Percentages for Columns to Never Cut */
+        .pdf-mode th:nth-child(1), .pdf-mode td:nth-child(1) { width: 4%; }
+        .pdf-mode th:nth-child(2), .pdf-mode td:nth-child(2) { width: 17%; }
+        .pdf-mode th:nth-child(3), .pdf-mode td:nth-child(3) { width: 13%; }
+        .pdf-mode th:nth-child(4), .pdf-mode td:nth-child(4) { width: 7%; }
+        .pdf-mode th:nth-child(5), .pdf-mode td:nth-child(5) { width: 5%; }
+        .pdf-mode th:nth-child(6), .pdf-mode td:nth-child(6) { width: 5%; }
+        .pdf-mode th:nth-child(7), .pdf-mode td:nth-child(7) { width: 7%; }
+        .pdf-mode th:nth-child(8), .pdf-mode td:nth-child(8) { width: 9%; }
+        .pdf-mode th:nth-child(9), .pdf-mode td:nth-child(9) { width: 11%; }
+        .pdf-mode th:nth-child(10), .pdf-mode td:nth-child(10) { width: 6%; }
+        .pdf-mode th:nth-child(11), .pdf-mode td:nth-child(11) { width: 16%; } /* Extra width to prevent digit cutoff */
+
+        /* PDF Fonts Scaling */
+        .pdf-mode th { padding: 10px 4px !important; font-size: 13px !important; background-color: var(--royal-blue) !important; color: var(--royal-gold) !important; border: 1px solid var(--royal-blue) !important;}
+        .pdf-mode td { padding: 8px 4px !important; border: 1px solid var(--border-color) !important; word-wrap: break-word !important; font-size: 13px !important; text-align: center !important;}
+        .pdf-mode input, .pdf-mode select { font-size: 13px !important; font-weight: bold; color: var(--royal-blue) !important; background: transparent !important; border:none !important; text-align: center !important;}
+
+        .pdf-mode .box { border: 2px solid var(--royal-blue) !important; padding: 20px !important; background: transparent !important; box-shadow:none !important;}
+        .pdf-mode .t-row { font-size: 14px !important; color: #000 !important; }
+        .pdf-mode .grand { font-size: 17px !important; color: var(--royal-blue) !important; border-top: 2px solid var(--royal-blue) !important; }
+        .pdf-mode .final-balance { background: var(--royal-blue) !important; color: var(--royal-gold) !important; font-size: 18px !important; }
+        .pdf-mode .quote-meta { border: 1px solid var(--border-color) !important; background: transparent !important; box-shadow: none !important; }
+        .pdf-mode input.clean { border: none !important; border-bottom: 1px dotted var(--border-color) !important; border-radius: 0 !important; padding: 2px !important; font-size:13px !important;}
+
+        /* --- 9. MOBILE REFINEMENTS --- */
+        @media (max-width: 640px) {
+            body { padding: 3px; }
+            .app { padding: 12px; border-radius: 10px; }
+            .controls { flex-direction: column; gap: 10px; align-items: stretch; padding: 12px; }
+            .controls > div:first-child { text-align: center; }
+            .btn-group { justify-content: center; }
+            .btn { padding: 9px 12px; font-size: 11px; }
+            .header-top-row { flex-direction: column; gap: 10px; align-items: stretch; }
+            .logo-section { text-align: center; }
+            .quote-meta .form-row { justify-content: space-between; }
+            .quote-meta input { width: 140px; }
+            .invoice-head { grid-template-columns: 1fr; }
+            .footer-wrapper { flex-direction: column; }
+            .footer-totals { margin-left: 0; max-width: none; width: 100%; }
+            .signatures { width: 100%; margin-bottom: 5px; }
+            .modal { padding: 18px; }
+            .watermark { font-size: 52px; }
+        }
+    </style>
+</head>
+<body>
+
+<datalist id="colourList">
+    <option value="H/23">
+    <option value="Mate Black">
+    <option value="White 9016">
+    <option value="Dull">
+    <option value="Wood Coat">
+</datalist>
+
+<div class="app" id="invoiceApp">
+    <!-- WATERMARK -->
+    <div class="watermark" id="appWatermark">ALUMINIUM PRO</div>
+
+    <div class="controls no-print" id="controlPanel">
+        <div>
+            <strong>ALUMINIUM PRO</strong>
+            <span>Max Level Premium</span>
+        </div>
+        <div class="btn-group">
+            <button onclick="openModal('companyModal')" class="btn btn-purple">&#127970; Company Profile</button>
+            <button onclick="openModal('customerModal')" class="btn btn-blue">&#128100; Customer Details</button>
+            <button onclick="openRates()" class="btn btn-orange">Rates Manager</button>
+            <button onclick="resetAll()" class="btn btn-red">New Quote</button>
+            <button onclick="downloadPDF()" class="btn btn-purple">Download HD PDF</button>
+        </div>
     </div>
 
-    ${tests.map(t=>`
+    <!-- HEADER TOP: LOGO & QUOTE META -->
+    <div class="header-top-row">
+        <div class="logo-section">
+            <input type="file" id="logoInput" accept="image/*" style="display: none;" onchange="loadLogo(event)">
+            <img id="logoImg" class="logo-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='80'><rect width='200' height='80' fill='%23f8fafc' rx='8'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' font-weight='bold' fill='%2394a3b8'>+ Upload Company Logo</text></svg>" onclick="document.getElementById('logoInput').click()" title="Click to upload your shop logo">
+            <div class="logo-hint no-print">Logo lagane ke liye box par click karein</div>
+        </div>
 
-      <div class="check-item">
+        <div class="quote-meta">
+            <div class="form-row"><span class="label uppercase">Quote #:</span><input id="quoteNo" class="clean" placeholder="Q-1001" value="Q-1001"></div>
+            <div class="form-row"><span class="label uppercase">Date:</span><input type="date" id="date" class="clean"></div>
+        </div>
+    </div>
 
-        <span>${escapeHtml(t.name)}</span>
+    <!-- PROFILE STRIP (compact display; edit via Company Profile / Customer Details buttons) -->
+    <div class="invoice-head">
+        <div class="inv-card from">
+            <div class="inv-tag">
+                <span>Company / Shop</span>
+                <button class="edit-mini no-print" onclick="openModal('companyModal')" title="Edit Company Profile">&#9998;&#65039;</button>
+            </div>
+            <div class="inv-name" id="dispCompany">ALUMINIUM PRO</div>
+            <div class="inv-line" id="dispOwner"></div>
+            <div class="inv-line" id="dispShopAddr"></div>
+            <div class="inv-line" id="dispShopMobile"></div>
+        </div>
 
-        <span class="${t.ok ? "pass":"fail"}">
-          ${t.ok ? "PASS":"FAIL"}
-        </span>
+        <div class="inv-card billto">
+            <div class="inv-tag">
+                <span>Bill To / Customer</span>
+                <button class="edit-mini no-print" onclick="openModal('customerModal')" title="Edit Customer Details">&#9998;&#65039;</button>
+            </div>
+            <div class="inv-name" id="dispCust">Walk-in Customer</div>
+            <div class="inv-line" id="dispCustAddr"></div>
+            <div class="inv-line" id="dispCustContact"></div>
+        </div>
+    </div>
 
-      </div>
+    <!-- DYNAMIC TABLE -->
+    <div class="table-wrap" id="mainTableWrap">
+        <table id="mainTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Section</th>
+                    <th>Colour</th>
+                    <th>Thick</th>
+                    <th>Len</th>
+                    <th>Qty</th>
+                    <th>Feet</th>
+                    <th>Rate</th>
+                    <th>Amount</th>
+                    <th>Dis%</th>
+                    <th>Net Amt</th>
+                    <th class="no-print">X</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+    <button onclick="addRow()" class="btn btn-blue no-print" id="addRowBtn" style="margin-bottom:20px; align-self: flex-start; box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);">+ Add Row To Quote</button>
 
-    `).join("")}
+    <!-- FOOTER: SIGNATURES & TOTALS -->
+    <div class="footer-wrapper">
+        <div class="signatures">
+            <div class="sign-box">Customer Signature</div>
+            <div class="sign-box">Authorized Signature</div>
+        </div>
 
-  `;
+        <div class="footer-totals">
+            <div class="box">
+                <div class="t-row"><span>Total Feet:</span> <strong id="tFeet">0.00</strong></div>
+                <div class="t-row"><span>Gross Amount:</span> <strong id="tGross">Rs. 0</strong></div>
+                <div class="t-row" style="color:#ef4444"><span>Discount Amount:</span> <span id="tDisc">Rs. 0</span></div>
+                <div class="t-row" style="border-bottom:1px solid #e2e8f0; padding-bottom:10px"><span>Net Amount:</span> <strong id="tNet" style="color:#1d4ed8; font-size:16px;">Rs. 0</strong></div>
 
-  openModal("checkModal");
-}
+                <div class="t-row" style="margin-top:15px">
+                    <span style="font-size:14px">Labour Charges:</span>
+                    <input type="number" id="vLabour" placeholder="0" class="clean text-right" style="width:90px; padding:4px;" oninput="calcTotal()">
+                </div>
+                <div class="t-row">
+                    <span style="font-size:14px">Freight / Rent:</span>
+                    <input type="number" id="vFreight" placeholder="0" class="clean text-right" style="width:90px; padding:4px;" oninput="calcTotal()">
+                </div>
 
+                <div class="t-row grand">
+                    <span>GRAND TOTAL:</span> <span id="tGrand">Rs. 0</span>
+                </div>
 
-/* =========================================================
-   MODAL
-========================================================= */
+                <div class="balance-box">
+                    <div class="t-row">
+                        <span style="font-size:14px">Previous Balance:</span>
+                        <input type="number" id="vPrev" placeholder="0" class="clean text-right" style="width:90px; padding:4px; background:white; border-radius:4px;" oninput="calcTotal()">
+                    </div>
+                    <div class="t-row">
+                        <span style="font-size:14px">Amount Paid:</span>
+                        <input type="number" id="vPaid" placeholder="0" class="clean text-right" style="width:90px; color:#047857; font-weight:900; padding:4px; background:white; border-radius:4px;" oninput="calcTotal()">
+                    </div>
+                    <div class="final-balance">
+                        <span>BALANCE:</span> <span id="tBal">Rs. 0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-function openModal(id){
+    <!-- TERMS & CONDITIONS -->
+    <div class="terms-box">
+        <p><strong>Terms &amp; Conditions:</strong></p>
+        <p>1. Validity of this quotation is 7 days from the date of issue.</p>
+        <p>2. Goods once cut or altered will not be returned or exchanged under any circumstances.</p>
+        <div class="urdu">نوٹ: براہ کرم مال گن کر وصول کریں، مال کاٹنے سے پہلے اچھی طرح چیک کر لیں۔ کٹا ہوا مال واپس یا تبدیل ہرگز نہیں ہوگا۔</div>
+    </div>
 
-  document.getElementById(id)
-    .classList.add("show");
+    <div class="thank-you">Thank You For Your Business!</div>
 
-}
+</div>
 
-function closeModal(id){
+<!-- Company Profile Modal -->
+<div id="companyModal" class="modal-overlay">
+    <div class="modal compact">
+        <div class="modal-head">
+            <h3>&#127970; Company Profile</h3>
+            <button onclick="closeModal('companyModal')" class="btn btn-red" style="padding: 6px 15px;">Close</button>
+        </div>
+        <div class="modal-body">
+            <div class="form-row"><span class="label">Owner:</span><input id="owner" class="clean uppercase" placeholder="Owner Name" oninput="renderProfile();save();"></div>
+            <div class="form-row"><span class="label">Company:</span><input id="shop" class="clean uppercase" placeholder="Company / Shop Name" oninput="renderProfile();save();"></div>
+            <div class="form-row"><span class="label">Address:</span><input id="shopAddr" class="clean" placeholder="Complete Address" oninput="renderProfile();save();"></div>
+            <div class="form-row"><span class="label">Mobile:</span><input id="shopMobile" class="clean" placeholder="Mobile Number" oninput="renderProfile();save();"></div>
+        </div>
+        <div class="modal-foot">
+            <button onclick="closeModal('companyModal')" class="btn btn-green" style="padding: 8px 25px;">&#10003; Done</button>
+        </div>
+    </div>
+</div>
 
-  document.getElementById(id)
-    .classList.remove("show");
+<!-- Customer Details Modal -->
+<div id="customerModal" class="modal-overlay">
+    <div class="modal compact">
+        <div class="modal-head">
+            <h3>&#128100; Customer Details</h3>
+            <button onclick="closeModal('customerModal')" class="btn btn-red" style="padding: 6px 15px;">Close</button>
+        </div>
+        <div class="modal-body">
+            <div class="form-row"><span class="label">Name:</span><input id="cust" class="clean uppercase" placeholder="Customer Name" oninput="renderProfile();save();"></div>
+            <div class="form-row"><span class="label">Address:</span><input id="addr" class="clean" placeholder="Customer Address" oninput="renderProfile();save();"></div>
+            <div class="form-row"><span class="label">Contact:</span><input id="custContact" class="clean" placeholder="Mobile Number" oninput="renderProfile();save();"></div>
+        </div>
+        <div class="modal-foot">
+            <button onclick="closeModal('customerModal')" class="btn btn-green" style="padding: 8px 25px;">&#10003; Done</button>
+        </div>
+    </div>
+</div>
 
-}
+<!-- Rate Modal -->
+<div id="rateModal" class="modal-overlay">
+    <div class="modal">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid #e2e8f0; padding-bottom:15px; margin-bottom:15px;">
+            <h3 style="margin:0; font-size:18px; color:var(--royal-blue); text-transform:uppercase;">Rates Manager</h3>
+            <button onclick="closeRates()" class="btn btn-red" style="padding: 6px 15px;">Close</button>
+        </div>
+        <input type="text" id="search" placeholder="&#128269; Search Section (e.g. DC-26F)..." style="width:100%; padding:10px; border:2px solid #cbd5e1; border-radius:6px; font-size:14px; outline:none; margin-bottom:10px;" oninput="renderRateTable()">
 
+        <div class="rate-scroll">
+            <table class="rate-table">
+                <thead>
+                    <tr>
+                        <th style="text-align:center; width:140px;">Section</th>
+                        <th style="width:75px; text-align:center;">1.2mm<br><small style="font-weight:normal; color:#fde68a;">(0.9/1.1)</small></th>
+                        <th style="width:75px; text-align:center;">1.6mm<br><small style="font-weight:normal; color:#fde68a;">(1.5)</small></th>
+                        <th style="width:75px; text-align:center;">2.0mm<br><small style="font-weight:normal; color:#fde68a;">(1.9)</small></th>
+                        <th style="width:50px; text-align:center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="rateBody"></tbody>
+            </table>
+        </div>
 
-/* =========================================================
-   CLICK OUTSIDE MODAL
-========================================================= */
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; padding-top:15px; border-top:2px solid #e2e8f0;">
+            <div>
+                <button onclick="addNewRate()" class="btn btn-blue" style="padding: 8px 15px; margin-right: 10px;">+ Add New</button>
+                <button onclick="restoreFactory()" style="background:none; border:none; color:#ef4444; text-decoration:underline; font-size:13px; cursor:pointer; padding:0; font-weight:bold;">Restore Defaults</button>
+            </div>
+            <button onclick="closeRates()" class="btn btn-green" style="padding: 8px 20px; font-size:14px;">Save Updates</button>
+        </div>
+    </div>
+</div>
 
-document.querySelectorAll(".modal").forEach(modal=>{
-
-  modal.addEventListener("click",function(e){
-
-    if(e.target === modal){
-      modal.classList.remove("show");
+<script>
+    function updateWatermark() {
+        const shopName = document.getElementById('shop').value;
+        document.getElementById('appWatermark').innerText = shopName ? shopName : 'ALUMINIUM PRO';
     }
 
-  });
+    /* --- Profile modals --- */
+    function openModal(id) { document.getElementById(id).classList.add('active'); }
+    function closeModal(id) { document.getElementById(id).classList.remove('active'); renderProfile(); save(); }
 
-});
+    function renderProfile() {
+        const shop = document.getElementById('shop').value.trim();
+        const owner = document.getElementById('owner').value.trim();
+        const sAddr = document.getElementById('shopAddr').value.trim();
+        const sMob = document.getElementById('shopMobile').value.trim();
+        document.getElementById('dispCompany').innerText = shop || 'ALUMINIUM PRO';
+        document.getElementById('dispOwner').innerText = owner ? 'Owner: ' + owner : '';
+        document.getElementById('dispShopAddr').innerText = sAddr;
+        document.getElementById('dispShopMobile').innerText = sMob ? 'Mobile: ' + sMob : '';
 
+        const cust = document.getElementById('cust').value.trim();
+        const cAddr = document.getElementById('addr').value.trim();
+        const cCon = document.getElementById('custContact').value.trim();
+        document.getElementById('dispCust').innerText = cust || 'Walk-in Customer';
+        document.getElementById('dispCustAddr').innerText = cAddr;
+        document.getElementById('dispCustContact').innerText = cCon ? 'Contact: ' + cCon : '';
 
-/* =========================================================
-   KEYBOARD SHORTCUTS
-========================================================= */
+        updateWatermark();
+    }
 
-document.addEventListener("keydown",function(e){
+    function loadLogo(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('logoImg').src = e.target.result;
+                document.getElementById('logoImg').style.border = 'none';
+                localStorage.setItem('savedShopLogo', e.target.result);
+            }
+            reader.readAsDataURL(file);
+        }
+    }
 
-  if(e.ctrlKey && e.key.toLowerCase() === "s"){
+    // --- PDF DOWNLOAD (html2pdf, 1000px desktop simulation) ---
+    function downloadPDF() {
+        const appElement = document.getElementById('invoiceApp');
 
-    e.preventDefault();
+        // Ensure scroll to top before PDF capture (fixes missing elements bug)
+        window.scrollTo(0, 0);
 
-    saveQuotation();
+        document.getElementById('controlPanel').style.display = 'none';
+        document.getElementById('addRowBtn').style.display = 'none';
+        const hiddenEls = document.querySelectorAll('.no-print');
+        hiddenEls.forEach(function(el){ el.style.display = 'none'; });
 
-  }
+        appElement.classList.add('pdf-mode');
+        const customer = document.getElementById('cust').value || 'Bill';
+        const quoteNo = document.getElementById('quoteNo').value || 'Q';
 
-  if(e.ctrlKey && e.key.toLowerCase() === "p"){
+        function restoreView() {
+            document.getElementById('controlPanel').style.display = '';
+            document.getElementById('addRowBtn').style.display = '';
+            hiddenEls.forEach(function(el){ el.style.display = ''; });
+            appElement.classList.remove('pdf-mode');
+        }
 
-    e.preventDefault();
+        // windowWidth is forcefully set to 1000 pixels.
+        // This ensures the html2canvas engine renders a full desktop-sized view.
+        // It then shrinks that perfect 1000px view to fit onto the A4 page.
+        // Result = 0% Clipping Guaranteed.
+        const opt = {
+            margin:       [10, 10, 10, 10],
+            filename:     'Quotation_' + quoteNo + '_' + customer + '.pdf',
+            image:        { type: 'jpeg', quality: 1 },
+            html2canvas:  { scale: 3, useCORS: true, windowWidth: 1000, width: 1000 },
+            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
 
-    printQuotation();
+        if (typeof html2pdf === 'undefined') {
+            restoreView();
+            alert('PDF library load nahi hui. Internet check karke dobara try karein.');
+            return;
+        }
 
-  }
+        html2pdf().set(opt).from(appElement).save().then(restoreView, function(){
+            restoreView();
+            alert('PDF banate waqt masla hua. Dobara try karein.');
+        });
+    }
 
-});
+    const DEFAULTS = [
+        { sec: 'DC-26F', r12: 880, r16: 1049, r20: 1244 },
+        { sec: 'DC-30F', r12: 754, r16: 911, r20: 1067 },
+        { sec: 'M-23',   r12: 354, r16: 445, r20: 542 },
+        { sec: 'M-28',   r12: 431, r16: 534, r20: 645 },
+        { sec: 'M-24',   r12: 420, r16: 497, r20: 605 },
+        { sec: 'M-24A',  r12: 371, r16: 474, r20: 572 },
+        { sec: 'DC-26C', r12: 776, r16: 957, r20: 1141 },
+        { sec: 'DC-30C', r12: 674, r16: 817, r20: 965 },
+        { sec: 'M-26F',  r12: 680, r16: 811, r20: 955 },
+        { sec: 'M-26',   r12: 582, r16: 710, r20: 836 },
+        { sec: 'M-30F',  r12: 612, r16: 713, r20: 836 },
+        { sec: 'M-30',   r12: 522, r16: 610, r20: 716 },
+        { sec: 'AA-23',  r12: 534, r16: 699, r20: 863 },
+        { sec: 'AA-28',  r12: 613, r16: 767, r20: 942 },
+        { sec: 'D-50',   r12: 553, r16: 707, r20: 851 },
+        { sec: 'D-50A',  r12: 490, r16: 584, r20: 710 },
+        { sec: 'D-50B',  r12: 0,   r16: 888, r20: 1093 },
+        { sec: 'D-51A',  r12: 453, r16: 559, r20: 674 },
+        { sec: 'D-51F',  r12: 530, r16: 665, r20: 804 },
+        { sec: 'D-54A',  r12: 397, r16: 484, r20: 580 },
+        { sec: 'D-54F',  r12: 486, r16: 582, r20: 702 },
+        { sec: 'D-46',   r12: 861, r16: 1087, r20: 1333 },
+        { sec: 'D-48A',  r12: 578, r16: 715, r20: 921 },
+        { sec: 'D-59',   r12: 537, r16: 628, r20: 746 },
+        { sec: 'D-59A',  r12: 550, r16: 676, r20: 821 },
+        { sec: 'D-40',   r12: 480, r16: 542, r20: 667 },
+        { sec: 'DG-26A', r12: 0,   r16: 1293, r20: 1580 },
+        { sec: 'DG-26',  r12: 867, r16: 1120, r20: 1351 },
+        { sec: 'DG-26F', r12: 933, r16: 1233, r20: 1484 },
+        { sec: 'DG-23',  r12: 513, r16: 638, r20: 759 },
+        { sec: 'DG-51A', r12: 0,   r16: 735, r20: 886 },
+        { sec: 'DG-23A', r12: 572, r16: 691, r20: 821 },
+        { sec: 'HD-1',   r12: 0,   r16: 821, r20: 995 },
+        { sec: 'HD-2',   r12: 0,   r16: 821, r20: 995 },
+        { sec: 'HD-3',   r12: 0,   r16: 1273, r20: 1472 },
+        { sec: 'D-48B',  r12: 0,   r16: 595, r20: 0 },
+        { sec: 'D-29',   r12: 274, r16: 0,    r20: 0 },
+        { sec: 'B6',     r12: 137, r16: 0,    r20: 0 }
+    ];
 
+    const STORAGE_KEY = 'alum_app_v58_perfect_pdf';
+    let rows = [];
+    let rates = [];
 
-/* =========================================================
-   AUTO SAVE INPUTS
-========================================================= */
+    window.onload = function() {
+        const savedLogo = localStorage.getItem('savedShopLogo');
+        if (savedLogo) {
+            document.getElementById('logoImg').src = savedLogo;
+            document.getElementById('logoImg').style.border = 'none';
+        }
 
-[
-  "globalDiscount",
-  "tax",
-  "labour",
-  "freight",
-  "previousBalance",
-  "paid",
-  "notes"
-].forEach(id=>{
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+            try {
+                const data = JSON.parse(saved);
+                loadForm(data);
+                rows = data.rows || [];
+                rates = (data.rates && data.rates.length) ? data.rates : JSON.parse(JSON.stringify(DEFAULTS));
+            } catch(e) {
+                rates = JSON.parse(JSON.stringify(DEFAULTS));
+                rows = [];
+            }
+        } else {
+            document.getElementById('date').value = new Date().toISOString().split('T')[0];
+            rates = JSON.parse(JSON.stringify(DEFAULTS));
+            addRow();
+        }
 
-  const el =
-    document.getElementById(id);
+        // Wire profile + meta inputs once (live display + autosave)
+        ['quoteNo','cust','addr','custContact','owner','shop','shopAddr','shopMobile','date'].forEach(function(id){
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', function(){ renderProfile(); save(); });
+        });
 
-  if(el){
+        renderProfile();
+        renderTable();
+        calcTotal();
+    };
 
-    el.addEventListener("input",calculateTotals);
+    function save() {
+        const data = {
+            quoteNo: document.getElementById('quoteNo').value,
+            cust: document.getElementById('cust').value,
+            addr: document.getElementById('addr').value,
+            custContact: document.getElementById('custContact').value,
+            owner: document.getElementById('owner').value,
+            shop: document.getElementById('shop').value,
+            shopAddr: document.getElementById('shopAddr').value,
+            shopMobile: document.getElementById('shopMobile').value,
+            date: document.getElementById('date').value,
+            labour: document.getElementById('vLabour').value,
+            freight: document.getElementById('vFreight').value,
+            prev: document.getElementById('vPrev').value,
+            paid: document.getElementById('vPaid').value,
+            rows: rows,
+            rates: rates
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
 
-  }
+    function loadForm(data) {
+        document.getElementById('quoteNo').value = data.quoteNo || 'Q-1001';
+        document.getElementById('cust').value = data.cust || '';
+        document.getElementById('addr').value = data.addr || '';
+        document.getElementById('custContact').value = data.custContact || '';
+        document.getElementById('owner').value = data.owner || '';
+        document.getElementById('shop').value = data.shop || '';
+        document.getElementById('shopAddr').value = data.shopAddr || '';
+        document.getElementById('shopMobile').value = data.shopMobile || '';
+        document.getElementById('date').value = data.date || '';
+        document.getElementById('vLabour').value = data.labour || '';
+        document.getElementById('vFreight').value = data.freight || '';
+        document.getElementById('vPrev').value = data.prev || '';
+        document.getElementById('vPaid').value = data.paid || '';
+    }
 
-});
+    // --- SMART ADD ROW (Inherits previous row settings) ---
+    function addRow() {
+        let lastColour = '';
+        let lastThk = '';
+        let lastDisc = '';
 
+        if (rows.length > 0) {
+            const lastRow = rows[rows.length - 1];
+            lastColour = lastRow.colour || '';
+            lastThk = lastRow.thk || '';
+            lastDisc = lastRow.disc || '';
+        }
 
+        rows.push({ id: Date.now() + Math.floor(Math.random()*1000), sec: '', colour: lastColour, thk: lastThk, len: '', qty: '', rate: '', disc: lastDisc });
+        renderTable();
+        save();
+    }
+
+    function removeRow(id) {
+        rows = rows.filter(function(r){ return r.id !== id; });
+        renderTable();
+        calcTotal();
+        save();
+    }
+
+    function renderTable() {
+        const tbody = document.getElementById('tableBody');
+        tbody.innerHTML = '';
+        const options = rates.map(function(r){ return '<option value="' + r.sec + '">'; }).join('');
+
+        rows.forEach(function(r, i) {
+            const tr = document.createElement('tr');
+            const ft = (parseFloat(r.len)||0) * (parseFloat(r.qty)||0);
+            const amt = ft * (parseFloat(r.rate)||0);
+            const net = amt - (amt * ((parseFloat(r.disc)||0)/100));
+
+            tr.innerHTML =
+                '<td style="text-align:center; color:#64748b; font-size:13px; font-weight:bold;">' + (i+1) + '</td>' +
+                '<td><input list="list_' + r.id + '" value="' + r.sec + '" onchange="upd(' + r.id + ', \'sec\', this.value)" class="uppercase" placeholder="SECTION" style="text-align:center; color:var(--royal-blue);">' +
+                '<datalist id="list_' + r.id + '">' + options + '</datalist></td>' +
+                '<td><input list="colourList" value="' + r.colour + '" onchange="upd(' + r.id + ', \'colour\', this.value)" placeholder="COLOUR" style="text-align:center; font-weight:bold; color:#0f172a;"></td>' +
+                '<td><select onchange="upd(' + r.id + ', \'thk\', this.value)" style="text-align-last:center;">' +
+                    '<option value="" hidden' + (r.thk==''?' selected':'') + '></option>' +
+                    '<option value="0.9mm"' + (r.thk=='0.9mm'?' selected':'') + '>0.9mm</option>' +
+                    '<option value="1.1mm"' + (r.thk=='1.1mm'?' selected':'') + '>1.1mm</option>' +
+                    '<option value="1.2mm"' + (r.thk=='1.2mm'?' selected':'') + '>1.2mm</option>' +
+                    '<option value="1.5mm"' + (r.thk=='1.5mm'?' selected':'') + '>1.5mm</option>' +
+                    '<option value="1.6mm"' + (r.thk=='1.6mm'?' selected':'') + '>1.6mm</option>' +
+                    '<option value="1.9mm"' + (r.thk=='1.9mm'?' selected':'') + '>1.9mm</option>' +
+                    '<option value="2.0mm"' + (r.thk=='2.0mm'?' selected':'') + '>2.0mm</option>' +
+                '</select></td>' +
+                '<td><input type="number" step="any" value="' + r.len + '" oninput="upd(' + r.id + ', \'len\', this.value)"></td>' +
+                '<td><input type="number" step="any" value="' + r.qty + '" oninput="upd(' + r.id + ', \'qty\', this.value)"></td>' +
+                '<td style="font-weight:bold; text-align:center; color:#334155;" id="ft_' + r.id + '">' + ft.toFixed(2) + '</td>' +
+                '<td><input type="number" step="any" value="' + r.rate + '" oninput="upd(' + r.id + ', \'rate\', this.value)"></td>' +
+                '<td style="text-align:center; color:#475569; font-weight:bold;" id="amt_' + r.id + '">' + Math.round(amt).toLocaleString() + '</td>' +
+                '<td><input type="number" step="any" value="' + r.disc + '" oninput="upd(' + r.id + ', \'disc\', this.value)" style="color:#ef4444;"></td>' +
+                '<td class="net-col" style="text-align:center;" id="net_' + r.id + '">' + Math.round(net).toLocaleString() + '</td>' +
+                '<td class="no-print" style="text-align:center;"><button onclick="removeRow(' + r.id + ')" style="color:#ef4444; background:none; border:none; font-weight:bold; font-size:22px; cursor:pointer; padding:0;" title="Delete Row">\u00d7</button></td>';
+            tbody.appendChild(tr);
+        });
+    }
+
+    function upd(id, key, val) {
+        const row = rows.find(function(r){ return r.id === id; });
+        if(!row) return;
+        row[key] = val;
+
+        if((key === 'sec' || key === 'thk') && row.sec && row.thk) {
+            const match = rates.find(function(r){ return r.sec.toLowerCase() === row.sec.toLowerCase(); });
+            if(match) {
+                let rKey = 'r16';
+                if(row.thk === '0.9mm' || row.thk === '1.1mm' || row.thk === '1.2mm') rKey = 'r12';
+                else if(row.thk === '1.5mm' || row.thk === '1.6mm') rKey = 'r16';
+                else if(row.thk === '1.9mm' || row.thk === '2.0mm') rKey = 'r20';
+
+                if(rKey) {
+                    row.rate = match[rKey] || 0;
+                    const rateEl = document.getElementById('rate_' + id);
+                    if (rateEl) rateEl.value = row.rate;
+                }
+            }
+        }
+
+        const ft = (parseFloat(row.len)||0) * (parseFloat(row.qty)||0);
+        const amt = ft * (parseFloat(row.rate)||0);
+        const net = amt - (amt * ((parseFloat(row.disc)||0)/100));
+
+        const ftEl = document.getElementById('ft_' + id);
+        const amtEl = document.getElementById('amt_' + id);
+        const netEl = document.getElementById('net_' + id);
+        if (ftEl) ftEl.innerText = ft.toFixed(2);
+        if (amtEl) amtEl.innerText = Math.round(amt).toLocaleString();
+        if (netEl) netEl.innerText = Math.round(net).toLocaleString();
+
+        calcTotal();
+        save();
+    }
+
+    function calcTotal() {
+        let tFt=0, tGr=0, tNet=0, tDisc=0;
+        rows.forEach(function(r) {
+            const f = (parseFloat(r.len)||0)*(parseFloat(r.qty)||0);
+            const a = f*(parseFloat(r.rate)||0);
+            const d = a*((parseFloat(r.disc)||0)/100);
+            tFt += f; tGr += a; tDisc += d; tNet += (a-d);
+        });
+
+        const lab = parseFloat(document.getElementById('vLabour').value)||0;
+        const frt = parseFloat(document.getElementById('vFreight').value)||0;
+        const grand = tNet + lab + frt;
+        const prev = parseFloat(document.getElementById('vPrev').value)||0;
+        const paid = parseFloat(document.getElementById('vPaid').value)||0;
+        const bal = (grand + prev) - paid;
+
+        document.getElementById('tFeet').innerText = tFt.toFixed(2);
+
+        // Standard Pakistani comma formatting on all total amounts
+        document.getElementById('tGross').innerText = "Rs. " + Math.round(tGr).toLocaleString('en-IN');
+        document.getElementById('tDisc').innerText = "Rs. " + Math.round(tDisc).toLocaleString('en-IN');
+        document.getElementById('tNet').innerText = "Rs. " + Math.round(tNet).toLocaleString('en-IN');
+        document.getElementById('tGrand').innerText = "Rs. " + Math.round(grand).toLocaleString('en-IN');
+        document.getElementById('tBal').innerText = "Rs. " + Math.round(bal).toLocaleString('en-IN');
+
+        save();
+    }
+
+    function resetAll() {
+        if(confirm("Start a New Quotation? (Current data will be cleared)")) {
+            rows = [];
+            ['vLabour','vFreight','vPrev','vPaid','cust','addr','custContact'].forEach(function(id){ document.getElementById(id).value = ''; });
+            const qEl = document.getElementById('quoteNo');
+            const currentQ = parseInt(qEl.value.replace(/\D/g, '')) || 1000;
+            qEl.value = 'Q-' + (currentQ + 1);
+            addRow();
+            renderProfile();
+            calcTotal();
+        }
+    }
+
+    /* --- Rate manager --- */
+    function openRates() { document.getElementById('rateModal').classList.add('active'); renderRateTable(); }
+    function closeRates() { document.getElementById('rateModal').classList.remove('active'); save(); renderTable(); calcTotal(); }
+    function addNewRate() { rates.unshift({ sec: '', r12: '', r16: '', r20: '' }); document.getElementById('search').value = ''; renderRateTable(); }
+    function removeRateRow(index) { if(confirm("Delete this section?")) { rates.splice(index, 1); renderRateTable(); } }
+    function restoreFactory() { if(confirm("Reset rates to Default?")) { rates = JSON.parse(JSON.stringify(DEFAULTS)); renderRateTable(); } }
+
+    function renderRateTable() {
+        const q = document.getElementById('search').value.toLowerCase();
+        const tbody = document.getElementById('rateBody');
+        tbody.innerHTML = '';
+        rates.forEach(function(r, idx) {
+            if(!r.sec.toLowerCase().includes(q) && q !== '') return;
+            tbody.innerHTML +=
+                '<tr>' +
+                '<td style="padding-left:10px;"><input value="' + r.sec + '" onchange="rates[' + idx + '].sec=this.value" placeholder="Sec Name" style="font-weight:bold; border:1px solid #cbd5e1; background:white;"></td>' +
+                '<td><input type="number" step="any" value="' + (r.r12 === 0 ? '' : r.r12) + '" placeholder="-" onchange="rates[' + idx + '].r12=this.value || 0"></td>' +
+                '<td><input type="number" step="any" value="' + (r.r16 === 0 ? '' : r.r16) + '" placeholder="-" onchange="rates[' + idx + '].r16=this.value || 0"></td>' +
+                '<td><input type="number" step="any" value="' + (r.r20 === 0 ? '' : r.r20) + '" placeholder="-" onchange="rates[' + idx + '].r20=this.value || 0"></td>' +
+                '<td style="text-align:center;"><button onclick="removeRateRow(' + idx + ')" style="color:white; background:#ef4444; border:none; cursor:pointer; font-weight:bold; border-radius:4px; padding:6px 12px;">X</button></td>' +
+                '</tr>';
+        });
+    }
 </script>
 
 </body>
