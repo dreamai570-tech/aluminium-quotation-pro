@@ -1,0 +1,4027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Aluminium Quotation Pro</title>
+
+<style>
+:root{
+  --navy:#0b1830;
+  --navy2:#142746;
+  --gold:#d6a84f;
+  --gold2:#f1ce7a;
+  --bg:#eef2f7;
+  --white:#fff;
+  --text:#162033;
+  --muted:#748196;
+  --line:#e3e8ef;
+  --green:#15966c;
+  --red:#dc4b55;
+  --shadow:0 10px 28px rgba(11,24,48,.08);
+}
+
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  width:100%;
+  max-width:100%;
+  min-height:100%;
+  overflow-x:hidden;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+button,input,select,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.app{
+  width:100%;
+  max-width:1450px;
+  margin:auto;
+  padding:10px;
+  padding-bottom:90px;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  background:linear-gradient(135deg,#071225,#172d50);
+  color:#fff;
+  border-radius:20px;
+  padding:15px;
+  box-shadow:0 15px 35px rgba(8,20,40,.18);
+}
+
+.header-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  background:linear-gradient(135deg,var(--gold2),#a9792d);
+  color:#111c2d;
+  font-size:22px;
+  font-weight:900;
+}
+
+.brand-name{
+  font-size:18px;
+  font-weight:900;
+}
+
+.brand-sub{
+  font-size:10px;
+  color:#aebbd0;
+  margin-top:3px;
+}
+
+.status{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.1);
+  padding:7px 10px;
+  border-radius:50px;
+  font-size:10px;
+}
+
+.status-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#35d69a;
+}
+
+.header-info{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+  margin-top:13px;
+}
+
+.info-box{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.08);
+  padding:8px;
+  border-radius:11px;
+}
+
+.info-box span{
+  display:block;
+  color:#9baac0;
+  font-size:8px;
+  text-transform:uppercase;
+}
+
+.info-box strong{
+  display:block;
+  font-size:11px;
+  margin-top:3px;
+}
+
+/* ================= TOOLBAR ================= */
+
+.toolbar{
+  display:flex;
+  gap:7px;
+  overflow-x:auto;
+  padding:10px 0;
+  scrollbar-width:none;
+}
+
+.toolbar::-webkit-scrollbar{
+  display:none;
+}
+
+.tool{
+  flex:0 0 auto;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--text);
+  border-radius:11px;
+  padding:9px 12px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.tool.primary{
+  background:var(--navy);
+  color:#fff;
+  border-color:var(--navy);
+}
+
+.tool.gold{
+  background:var(--gold);
+  color:#111b2a;
+  border-color:var(--gold);
+}
+
+/* ================= LAYOUT ================= */
+
+.layout{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid rgba(20,39,70,.06);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+
+.card-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:15px 15px 9px;
+}
+
+.card-title{
+  font-size:15px;
+  font-weight:900;
+}
+
+.card-sub{
+  color:var(--muted);
+  font-size:10px;
+  margin-top:3px;
+}
+
+.badge{
+  background:#f3f5f8;
+  color:#65748a;
+  padding:6px 8px;
+  border-radius:50px;
+  font-size:8px;
+  font-weight:900;
+}
+
+/* ================= CUSTOMER ================= */
+
+.profile{
+  padding:7px 12px 14px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+}
+
+.profile-card{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding:11px;
+  border:1px solid var(--line);
+  background:#fafbfd;
+  border-radius:13px;
+}
+
+.profile-icon{
+  width:36px;
+  height:36px;
+  display:grid;
+  place-items:center;
+  background:#edf1f6;
+  border-radius:10px;
+}
+
+.profile-label{
+  color:var(--muted);
+  font-size:8px;
+  text-transform:uppercase;
+  font-weight:900;
+}
+
+.profile-name{
+  font-size:12px;
+  font-weight:900;
+  margin-top:2px;
+}
+
+.profile-extra{
+  font-size:9px;
+  color:var(--muted);
+  margin-top:2px;
+}
+
+/* ================= ENTRY ================= */
+
+.entry{
+  padding:7px 14px 15px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:9px;
+}
+
+.field label{
+  display:block;
+  color:#64738a;
+  font-size:9px;
+  font-weight:900;
+  text-transform:uppercase;
+  margin:0 0 5px 2px;
+}
+
+.input,
+.select,
+.textarea{
+  width:100%;
+  min-width:0;
+  border:1px solid #dbe1e9;
+  background:#fff;
+  color:var(--text);
+  border-radius:11px;
+  padding:11px;
+  outline:none;
+  font-size:12px;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(214,168,79,.12);
+}
+
+.rate-panel{
+  margin-top:10px;
+  padding:11px;
+  border-radius:13px;
+  background:#f5f7fa;
+  border:1px solid var(--line);
+}
+
+.rate-line{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.rate-title{
+  color:var(--muted);
+  font-size:9px;
+  font-weight:900;
+}
+
+.rate-value{
+  color:var(--navy);
+  font-size:18px;
+  font-weight:950;
+}
+
+.auto{
+  background:#e5f8f0;
+  color:var(--green);
+  padding:5px 8px;
+  border-radius:50px;
+  font-size:8px;
+  font-weight:900;
+}
+
+.rate-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:4px;
+  margin-top:8px;
+}
+
+.rate-chip{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:7px;
+  padding:4px 6px;
+  color:#66758a;
+  font-size:8px;
+  font-weight:800;
+}
+
+.rate-chip.active{
+  background:var(--navy);
+  color:#fff;
+}
+
+.add-item{
+  width:100%;
+  border:0;
+  border-radius:13px;
+  padding:13px;
+  margin-top:10px;
+  background:linear-gradient(135deg,#e0b763,#bd8a35);
+  color:#111b2a;
+  font-weight:950;
+  font-size:13px;
+}
+
+/* ================= ITEM TABLE ================= */
+
+.items-section{
+  margin-top:12px;
+}
+
+.items-area{
+  padding:5px 12px 15px;
+}
+
+.desktop-table-wrap{
+  width:100%;
+  overflow-x:auto;
+  border:1px solid var(--line);
+  border-radius:13px;
+}
+
+.item-table{
+  width:100%;
+  min-width:1050px;
+  border-collapse:collapse;
+  font-size:10px;
+}
+
+.item-table th{
+  background:#f4f6f9;
+  color:#637187;
+  font-size:8px;
+  text-transform:uppercase;
+  padding:10px 7px;
+  text-align:left;
+  white-space:nowrap;
+}
+
+.item-table td{
+  padding:9px 7px;
+  border-top:1px solid var(--line);
+  white-space:nowrap;
+}
+
+.item-table tr:hover td{
+  background:#fafbfd;
+}
+
+.section-name{
+  font-weight:900;
+}
+
+.net{
+  color:var(--navy);
+  font-weight:950;
+}
+
+.action-buttons{
+  display:flex;
+  gap:4px;
+}
+
+.icon{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:7px;
+  min-width:28px;
+  height:28px;
+  font-size:11px;
+}
+
+.icon.delete{
+  color:var(--red);
+}
+
+/* MOBILE ITEM CARDS */
+
+.mobile-items{
+  display:block;
+}
+
+.item-card{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:11px;
+  margin-bottom:8px;
+}
+
+.item-top{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.item-title{
+  font-weight:900;
+  font-size:12px;
+}
+
+.item-sub{
+  color:var(--muted);
+  font-size:9px;
+  margin-top:3px;
+}
+
+.item-total{
+  color:var(--navy);
+  font-size:13px;
+  font-weight:950;
+}
+
+.item-info{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:5px;
+  margin-top:9px;
+}
+
+.item-info-box{
+  background:#f6f8fa;
+  border-radius:8px;
+  padding:7px;
+}
+
+.item-info-box span{
+  display:block;
+  color:var(--muted);
+  font-size:7px;
+  text-transform:uppercase;
+}
+
+.item-info-box strong{
+  display:block;
+  font-size:9px;
+  margin-top:2px;
+}
+
+.item-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:5px;
+  margin-top:9px;
+}
+
+.empty{
+  text-align:center;
+  padding:28px 10px;
+  color:var(--muted);
+}
+
+.empty-icon{
+  font-size:30px;
+}
+
+.empty strong{
+  display:block;
+  color:var(--text);
+  font-size:13px;
+  margin-top:5px;
+}
+
+.empty span{
+  display:block;
+  font-size:10px;
+  margin-top:3px;
+}
+
+/* ================= CHARGES ================= */
+
+.charge-area{
+  padding:7px 14px 15px;
+}
+
+.charge-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+
+.wide{
+  grid-column:1/-1;
+}
+
+.textarea{
+  min-height:75px;
+  resize:vertical;
+}
+
+/* ================= SUMMARY ================= */
+
+.summary-area{
+  padding:6px 14px 15px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  padding:8px 0;
+  border-bottom:1px dashed var(--line);
+  font-size:11px;
+}
+
+.summary-row span{
+  color:#68778c;
+}
+
+.summary-row strong{
+  font-weight:900;
+}
+
+.grand{
+  margin-top:8px;
+  padding:13px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#0b1830,#1a3156);
+  color:#fff;
+}
+
+.grand-line{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.grand small{
+  color:#aebbd0;
+  font-size:8px;
+  text-transform:uppercase;
+}
+
+.grand strong{
+  color:#f1ce7a;
+  font-size:22px;
+}
+
+.balance-line{
+  display:flex;
+  justify-content:space-between;
+  margin-top:7px;
+  font-size:10px;
+  color:#ccd5e2;
+}
+
+.balance-line strong{
+  color:#fff;
+  font-size:10px;
+}
+
+/* ================= BOTTOM ================= */
+
+.bottom{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:50;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1.2fr;
+  gap:6px;
+  padding:8px 9px calc(8px + env(safe-area-inset-bottom));
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);
+}
+
+.bottom button{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:10px;
+  padding:10px 4px;
+  font-size:9px;
+  font-weight:900;
+}
+
+.bottom .main{
+  background:var(--navy);
+  color:#fff;
+  border-color:var(--navy);
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:rgba(4,10,20,.58);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:10px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:100%;
+  max-width:700px;
+  max-height:92vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:20px;
+}
+
+.modal-head{
+  position:sticky;
+  top:0;
+  z-index:2;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px;
+  background:#fff;
+  border-bottom:1px solid var(--line);
+}
+
+.modal-title{
+  font-size:15px;
+  font-weight:950;
+}
+
+.close{
+  width:32px;
+  height:32px;
+  border:0;
+  border-radius:9px;
+  background:#f1f3f6;
+  font-size:17px;
+}
+
+.modal-body{
+  padding:15px;
+}
+
+.modal-actions{
+  display:flex;
+  gap:7px;
+  margin-top:14px;
+}
+
+.modal-actions button{
+  flex:1;
+}
+
+/* ================= HISTORY ================= */
+
+.history-search{
+  margin-bottom:10px;
+}
+
+.history-card{
+  border:1px solid var(--line);
+  background:#fafbfd;
+  border-radius:12px;
+  padding:10px;
+  margin-bottom:7px;
+}
+
+.history-top{
+  display:flex;
+  justify-content:space-between;
+}
+
+.history-title{
+  font-size:12px;
+  font-weight:900;
+}
+
+.history-date{
+  color:var(--muted);
+  font-size:8px;
+  margin-top:2px;
+}
+
+.history-total{
+  color:var(--navy);
+  font-weight:950;
+  font-size:12px;
+}
+
+/* ================= RATES ================= */
+
+.rate-manager{
+  overflow:auto;
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+
+.rate-table{
+  width:100%;
+  min-width:730px;
+  border-collapse:collapse;
+  font-size:9px;
+}
+
+.rate-table th{
+  background:#f4f6f9;
+  padding:8px;
+  text-align:left;
+}
+
+.rate-table td{
+  padding:7px;
+  border-top:1px solid var(--line);
+}
+
+.rate-input{
+  width:62px;
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:6px;
+  font-size:9px;
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:75px;
+  transform:translateX(-50%) translateY(15px);
+  background:#101b2e;
+  color:#fff;
+  border-radius:10px;
+  padding:10px 14px;
+  font-size:10px;
+  font-weight:800;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  z-index:300;
+  max-width:90%;
+  text-align:center;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* ================= DESKTOP ================= */
+
+@media(min-width:800px){
+
+  .app{
+    padding:18px;
+    padding-bottom:30px;
+  }
+
+  .layout{
+    grid-template-columns:minmax(0,1fr) 350px;
+    align-items:start;
+  }
+
+  .side{
+    position:sticky;
+    top:15px;
+  }
+
+  .profile{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .form-grid{
+    grid-template-columns:1.15fr 1fr .8fr 1.25fr .7fr;
+  }
+
+  .desktop-table-wrap{
+    display:block;
+  }
+
+  .mobile-items{
+    display:none;
+  }
+
+  .bottom{
+    position:static;
+    margin-top:12px;
+    padding:0;
+    background:transparent;
+    border:0;
+    backdrop-filter:none;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:799px){
+
+  .desktop-table-wrap{
+    display:none;
+  }
+
+  .mobile-items{
+    display:block;
+  }
+}
+
+/* ================= PRINT ================= */
+
+@media print{
+
+  @page{
+    size:A4;
+    margin:10mm;
+  }
+
+  html,body{
+    background:#fff!important;
+    overflow:visible!important;
+  }
+
+  .app{
+    max-width:none;
+    padding:0;
+  }
+
+  .toolbar,
+  .bottom,
+  .entry,
+  .charge-area,
+  .modal,
+  .mobile-items,
+  .icon{
+    display:none!important;
+  }
+
+  .layout{
+    display:block;
+  }
+
+  .card{
+    box-shadow:none;
+    border:1px solid #aaa;
+    border-radius:0;
+    margin-bottom:8px;
+    break-inside:avoid;
+  }
+
+  .desktop-table-wrap{
+    display:block!important;
+    overflow:visible;
+  }
+
+  .item-table{
+    min-width:0;
+    width:100%;
+    font-size:8px;
+  }
+
+  .item-table th,
+  .item-table td{
+    padding:5px;
+  }
+
+  .grand{
+    color:#000;
+    background:#eee!important;
+    border:1px solid #999;
+  }
+
+  .grand strong{
+    color:#000;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+  <div class="header-top">
+
+    <div class="brand">
+
+      <div class="logo">A</div>
+
+      <div>
+        <div class="brand-name">ALUMINIUM PRO</div>
+        <div class="brand-sub">Professional Quotation System</div>
+      </div>
+
+    </div>
+
+    <div class="status">
+      <span class="status-dot"></span>
+      <span id="saveStatus">Ready</span>
+    </div>
+
+  </div>
+
+  <div class="header-info">
+
+    <div class="info-box">
+      <span>Quotation</span>
+      <strong id="quoteNo">Q-0001</strong>
+    </div>
+
+    <div class="info-box">
+      <span>Date</span>
+      <strong id="quoteDate">—</strong>
+    </div>
+
+    <div class="info-box">
+      <span>Status</span>
+      <strong id="quoteStatus">Draft</strong>
+    </div>
+
+  </div>
+
+</header>
+
+<!-- ================= TOOLBAR ================= -->
+
+<div class="toolbar">
+
+  <button class="tool primary" onclick="newQuotation()">＋ New</button>
+
+  <button class="tool" onclick="openCustomer()">👤 Customer</button>
+
+  <button class="tool" onclick="openCompany()">🏢 Company</button>
+
+  <button class="tool" onclick="openRates()">▦ Rates</button>
+
+  <button class="tool" onclick="openHistory()">◷ History</button>
+
+  <button class="tool" onclick="checkApp()">✓ Check App</button>
+
+  <button class="tool" onclick="backup()">↥ Backup</button>
+
+  <button class="tool" onclick="document.getElementById('restore').click()">↧ Restore</button>
+
+</div>
+
+<div class="layout">
+
+<!-- ================= MAIN ================= -->
+
+<div>
+
+<!-- PROFILE -->
+
+<section class="card">
+
+  <div class="card-head">
+
+    <div>
+      <div class="card-title">Quotation Profile</div>
+      <div class="card-sub">Customer & company information</div>
+    </div>
+
+    <span class="badge">PROFILE</span>
+
+  </div>
+
+  <div class="profile">
+
+    <div class="profile-card">
+
+      <div class="profile-icon">👤</div>
+
+      <div>
+        <div class="profile-label">Customer</div>
+        <div class="profile-name" id="customerView">Customer not added</div>
+        <div class="profile-extra" id="customerExtra">Add customer details</div>
+      </div>
+
+    </div>
+
+    <div class="profile-card">
+
+      <div class="profile-icon">🏢</div>
+
+      <div>
+        <div class="profile-label">Company</div>
+        <div class="profile-name" id="companyView">Company not added</div>
+        <div class="profile-extra" id="companyExtra">Add company details</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= ITEM ENTRY ================= -->
+
+<section class="card" style="margin-top:12px;">
+
+  <div class="card-head">
+
+    <div>
+      <div class="card-title">Add Quotation Item</div>
+      <div class="card-sub">
+        Every item you add becomes a new row in the quotation table
+      </div>
+    </div>
+
+    <span class="badge">ADD ITEM</span>
+
+  </div>
+
+  <div class="entry">
+
+    <div class="form-grid">
+
+      <div class="field">
+
+        <label>Section</label>
+
+        <select id="section" class="select" onchange="updateRate()">
+          <option value="">Select Section</option>
+        </select>
+
+      </div>
+
+      <div class="field">
+
+        <label>Colour</label>
+
+        <select id="colour" class="select">
+
+          <option>Champagne</option>
+          <option>White 9016</option>
+          <option>Matt Black</option>
+          <option>Silver</option>
+          <option>White</option>
+          <option>Brown</option>
+          <option>Golden</option>
+          <option>Wood</option>
+          <option>Custom</option>
+
+        </select>
+
+      </div>
+
+      <div class="field">
+
+        <label>Thickness</label>
+
+        <select id="thickness" class="select" onchange="updateRate()">
+
+          <option value="">Select</option>
+          <option value="0.9">0.9 mm</option>
+          <option value="1.1">1.1 mm</option>
+          <option value="1.2">1.2 mm</option>
+          <option value="1.5">1.5 mm</option>
+          <option value="1.6">1.6 mm</option>
+          <option value="1.9">1.9 mm</option>
+          <option value="2.0">2.0 mm</option>
+
+        </select>
+
+      </div>
+
+      <div class="field">
+
+        <label>Length / Size</label>
+
+        <input
+          id="size"
+          class="input"
+          placeholder="10 × 4"
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label>Quantity</label>
+
+        <input
+          id="qty"
+          class="input"
+          type="number"
+          min="1"
+          placeholder="1"
+        >
+
+      </div>
+
+    </div>
+
+    <div id="customColourBox" style="display:none;margin-top:9px;">
+
+      <div class="field">
+
+        <label>Custom Colour</label>
+
+        <input id="customColour" class="input" placeholder="Colour name">
+
+      </div>
+
+    </div>
+
+    <!-- RATE -->
+
+    <div class="rate-panel">
+
+      <div class="rate-line">
+
+        <div>
+
+          <div class="rate-title">AUTO RATE</div>
+
+          <div class="rate-value" id="ratePreview">—</div>
+
+        </div>
+
+        <span class="auto">● AUTO</span>
+
+      </div>
+
+      <div class="rate-chips" id="rateChips"></div>
+
+    </div>
+
+    <div style="margin-top:9px;">
+
+      <div class="field">
+
+        <label>Rate</label>
+
+        <input id="rate" class="input" type="number" placeholder="Auto">
+
+      </div>
+
+    </div>
+
+    <div style="margin-top:9px;">
+
+      <div class="field">
+
+        <label>Discount %</label>
+
+        <input id="discount" class="input" type="number" min="0" max="100" value="0">
+
+      </div>
+
+    </div>
+
+    <button class="add-item" onclick="addItem()">
+      ＋ ADD ITEM TO QUOTATION
+    </button>
+
+  </div>
+
+</section>
+
+<!-- ================= QUOTATION TABLE ================= -->
+
+<section class="card items-section">
+
+  <div class="card-head">
+
+    <div>
+      <div class="card-title">Quotation Item Table</div>
+      <div class="card-sub" id="itemCount">
+        0 items — add items above
+      </div>
+    </div>
+
+    <button
+      class="tool"
+      onclick="clearItems()"
+      style="padding:7px 9px;"
+    >
+      Clear
+    </button>
+
+  </div>
+
+  <div class="items-area">
+
+    <!-- DESKTOP TABLE -->
+
+    <div class="desktop-table-wrap">
+
+      <table class="item-table">
+
+        <thead>
+
+          <tr>
+            <th>#</th>
+            <th>Section</th>
+            <th>Colour</th>
+            <th>Thickness</th>
+            <th>Length / Size</th>
+            <th>Qty</th>
+            <th>Rate</th>
+            <th>Amount</th>
+            <th>Disc.</th>
+            <th>After Discount</th>
+            <th>Action</th>
+          </tr>
+
+        </thead>
+
+        <tbody id="itemTableBody"></tbody>
+
+      </table>
+
+    </div>
+
+    <!-- MOBILE CARDS -->
+
+    <div id="mobileItems" class="mobile-items"></div>
+
+    <div id="emptyItems" class="empty">
+
+      <div class="empty-icon">▱</div>
+
+      <strong>No quotation items yet</strong>
+
+      <span>
+        Add your first item above. Every added item will appear here.
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+</div>
+
+<!-- ================= SIDE ================= -->
+
+<aside class="side">
+
+<!-- CHARGES -->
+
+<section class="card">
+
+  <div class="card-head">
+
+    <div>
+      <div class="card-title">Charges & Adjustments</div>
+      <div class="card-sub">Optional quotation charges</div>
+    </div>
+
+    <span class="badge">TOTAL</span>
+
+  </div>
+
+  <div class="charge-area">
+
+    <div class="charge-grid">
+
+      <div class="field">
+
+        <label>Global Discount %</label>
+
+        <input
+          id="globalDiscount"
+          class="input"
+          type="number"
+          value="0"
+          min="0"
+          max="100"
+          oninput="calculateTotals()"
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label>Labour</label>
+
+        <input
+          id="labour"
+          class="input"
+          type="number"
+          value="0"
+          oninput="calculateTotals()"
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label>Freight / Rent</label>
+
+        <input
+          id="freight"
+          class="input"
+          type="number"
+          value="0"
+          oninput="calculateTotals()"
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label>Previous Balance</label>
+
+        <input
+          id="previous"
+          class="input"
+          type="number"
+          value="0"
+          oninput="calculateTotals()"
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label>Amount Paid</label>
+
+        <input
+          id="paid"
+          class="input"
+          type="number"
+          value="0"
+          oninput="calculateTotals()"
+        >
+
+      </div>
+
+      <div class="field wide">
+
+        <label>Notes</label>
+
+        <textarea
+          id="notes"
+          class="textarea"
+          placeholder="Quotation notes..."
+        ></textarea>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SUMMARY -->
+
+<section class="card" style="margin-top:12px;">
+
+  <div class="card-head">
+
+    <div>
+      <div class="card-title">Live Quotation Total</div>
+      <div class="card-sub">Automatically updated</div>
+    </div>
+
+    <span class="badge">LIVE</span>
+
+  </div>
+
+  <div class="summary-area">
+
+    <div class="summary-row">
+      <span>Gross</span>
+      <strong id="gross">Rs. 0</strong>
+    </div>
+
+    <div class="summary-row">
+      <span>Item Discount</span>
+      <strong id="itemDiscount">Rs. 0</strong>
+    </div>
+
+    <div class="summary-row">
+      <span>After Item Discount</span>
+      <strong id="net">Rs. 0</strong>
+    </div>
+
+    <div class="summary-row">
+      <span>Global Discount</span>
+      <strong id="globalDiscountAmount">Rs. 0</strong>
+    </div>
+
+    <div class="summary-row">
+      <span>After Global Discount</span>
+      <strong id="afterGlobal">Rs. 0</strong>
+    </div>
+
+    <div class="summary-row">
+      <span>Labour + Freight</span>
+      <strong id="charges">Rs. 0</strong>
+    </div>
+
+    <div class="summary-row">
+      <span>Previous Balance</span>
+      <strong id="previousTotal">Rs. 0</strong>
+    </div>
+
+    <div class="grand">
+
+      <div class="grand-line">
+
+        <small>Grand Total</small>
+
+        <strong id="grandTotal">
+          Rs. 0
+        </strong>
+
+      </div>
+
+      <div class="balance-line">
+        <span>Paid</span>
+        <strong id="paidTotal">Rs. 0</strong>
+      </div>
+
+      <div class="balance-line">
+        <span>Balance</span>
+        <strong id="balanceTotal">Rs. 0</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</aside>
+
+</div>
+
+</div>
+
+<!-- ================= BOTTOM ================= -->
+
+<div class="bottom">
+
+  <button onclick="saveQuotation()">💾 Save</button>
+
+  <button onclick="window.print()">🖨 PDF</button>
+
+  <button onclick="sendWhatsApp()">☏ WhatsApp</button>
+
+  <button class="main" onclick="openSummary()">✓ Summary</button>
+
+</div>
+
+<!-- ================= CUSTOMER MODAL ================= -->
+
+<div class="modal" id="customerModal">
+
+<div class="modal-box">
+
+  <div class="modal-head">
+
+    <div class="modal-title">Customer Details</div>
+
+    <button class="close" onclick="closeModal('customerModal')">×</button>
+
+  </div>
+
+  <div class="modal-body">
+
+    <div class="field">
+      <label>Customer Name</label>
+      <input id="customerName" class="input">
+    </div>
+
+    <div class="field" style="margin-top:9px;">
+      <label>Contact</label>
+      <input id="customerContact" class="input">
+    </div>
+
+    <div class="field" style="margin-top:9px;">
+      <label>Address</label>
+      <textarea id="customerAddress" class="textarea"></textarea>
+    </div>
+
+    <div class="modal-actions">
+
+      <button class="tool" onclick="closeModal('customerModal')">
+        Cancel
+      </button>
+
+      <button class="tool primary" onclick="saveCustomer()">
+        Save Customer
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+<!-- ================= COMPANY MODAL ================= -->
+
+<div class="modal" id="companyModal">
+
+<div class="modal-box">
+
+  <div class="modal-head">
+
+    <div class="modal-title">Company Details</div>
+
+    <button class="close" onclick="closeModal('companyModal')">×</button>
+
+  </div>
+
+  <div class="modal-body">
+
+    <div class="field">
+      <label>Company Name</label>
+      <input id="companyName" class="input">
+    </div>
+
+    <div class="field" style="margin-top:9px;">
+      <label>Owner</label>
+      <input id="companyOwner" class="input">
+    </div>
+
+    <div class="field" style="margin-top:9px;">
+      <label>Mobile</label>
+      <input id="companyMobile" class="input">
+    </div>
+
+    <div class="field" style="margin-top:9px;">
+      <label>Address</label>
+      <textarea id="companyAddress" class="textarea"></textarea>
+    </div>
+
+    <div class="modal-actions">
+
+      <button class="tool" onclick="closeModal('companyModal')">
+        Cancel
+      </button>
+
+      <button class="tool primary" onclick="saveCompany()">
+        Save Company
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+<!-- ================= RATE MODAL ================= -->
+
+<div class="modal" id="ratesModal">
+
+<div class="modal-box">
+
+  <div class="modal-head">
+
+    <div class="modal-title">Rate Manager</div>
+
+    <button class="close" onclick="closeModal('ratesModal')">×</button>
+
+  </div>
+
+  <div class="modal-body">
+
+    <button
+      class="tool gold"
+      onclick="openAddRate()"
+      style="margin-bottom:10px;"
+    >
+      ＋ Add New Rate
+    </button>
+
+    <div class="rate-manager">
+
+      <table class="rate-table">
+
+        <thead>
+
+          <tr>
+            <th>Section</th>
+            <th>0.9</th>
+            <th>1.1</th>
+            <th>1.2</th>
+            <th>1.5</th>
+            <th>1.6</th>
+            <th>1.9</th>
+            <th>2.0</th>
+            <th>Action</th>
+          </tr>
+
+        </thead>
+
+        <tbody id="ratesBody"></tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+<!-- ================= ADD RATE MODAL ================= -->
+
+<div class="modal" id="addRateModal">
+
+<div class="modal-box">
+
+  <div class="modal-head">
+
+    <div class="modal-title">Add New Section Rate</div>
+
+    <button class="close" onclick="closeModal('addRateModal')">×</button>
+
+  </div>
+
+  <div class="modal-body">
+
+    <div class="field">
+      <label>Section Name</label>
+      <input id="newSection" class="input" placeholder="D-60">
+    </div>
+
+    <div class="field" style="margin-top:9px;">
+      <label>0.9 / 1.1 / 1.2 Rate</label>
+      <input id="newG1" class="input" type="number">
+    </div>
+
+    <div class="field" style="margin-top:9px;">
+      <label>1.5 / 1.6 Rate</label>
+      <input id="newG2" class="input" type="number">
+    </div>
+
+    <div class="field" style="margin-top:9px;">
+      <label>1.9 / 2.0 Rate</label>
+      <input id="newG3" class="input" type="number">
+    </div>
+
+    <div class="modal-actions">
+
+      <button class="tool" onclick="closeModal('addRateModal')">
+        Cancel
+      </button>
+
+      <button class="tool primary" onclick="saveNewRate()">
+        Save Rate
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+<!-- ================= HISTORY ================= -->
+
+<div class="modal" id="historyModal">
+
+<div class="modal-box">
+
+  <div class="modal-head">
+
+    <div class="modal-title">Quotation History</div>
+
+    <button class="close" onclick="closeModal('historyModal')">×</button>
+
+  </div>
+
+  <div class="modal-body">
+
+    <input
+      id="historySearch"
+      class="input"
+      placeholder="Search quotation / customer..."
+      oninput="renderHistory()"
+    >
+
+    <div id="historyList" style="margin-top:10px;"></div>
+
+  </div>
+
+</div>
+
+</div>
+
+<!-- ================= SUMMARY MODAL ================= -->
+
+<div class="modal" id="summaryModal">
+
+<div class="modal-box">
+
+  <div class="modal-head">
+
+    <div class="modal-title">Quotation Summary</div>
+
+    <button class="close" onclick="closeModal('summaryModal')">×</button>
+
+  </div>
+
+  <div class="modal-body" id="summaryBody"></div>
+
+</div>
+
+</div>
+
+<!-- ================= CHECK MODAL ================= -->
+
+<div class="modal" id="checkModal">
+
+<div class="modal-box">
+
+  <div class="modal-head">
+
+    <div class="modal-title">App Check</div>
+
+    <button class="close" onclick="closeModal('checkModal')">×</button>
+
+  </div>
+
+  <div class="modal-body" id="checkBody"></div>
+
+</div>
+
+</div>
+
+<input
+  id="restore"
+  type="file"
+  accept=".json"
+  style="display:none"
+>
+
+<div id="toast" class="toast"></div>
+
+<script>
+
+/* =========================================================
+   RATES
+========================================================= */
+
+const DEFAULT_RATES=[
+ ["DC-26F",880,1049,1244],
+ ["DC-30F",754,911,1067],
+ ["M-23",354,445,542],
+ ["M-28",431,534,645],
+ ["M-24",420,497,605],
+ ["M-24A",371,474,572],
+ ["DC-26C",776,957,1141],
+ ["DC-30C",674,817,965],
+ ["M-26F",680,811,955],
+ ["M-26",582,710,836],
+ ["M-30F",612,713,836],
+ ["M-30",522,610,716],
+ ["AA-23",534,699,863],
+ ["AA-28",613,767,942],
+ ["D-50",553,707,851],
+ ["D-50A",490,584,710],
+ ["D-50B",0,888,1093],
+ ["D-51A",453,559,674],
+ ["D-51F",530,665,804],
+ ["D-54A",397,484,580],
+ ["D-54F",486,582,702],
+ ["D-46",861,1087,1333],
+ ["D-48A",578,715,921],
+ ["D-59",537,628,746],
+ ["D-59A",550,676,821],
+ ["D-40",480,542,667],
+ ["DG-26A",0,1293,1580],
+ ["DG-26",867,1120,1351],
+ ["DG-26F",933,1233,1484],
+ ["DG-23",513,638,759],
+ ["DG-51A",0,735,886],
+ ["DG-23A",572,691,821],
+ ["HD-1",0,821,995],
+ ["HD-2",0,821,995],
+ ["HD-3",0,1273,1472],
+ ["D-48B",0,595,0],
+ ["D-29",274,0,0],
+ ["B6",137,0,0]
+];
+
+let rates=loadRates();
+let items=[];
+let editIndex=-1;
+
+let customer=loadJSON("quotation_customer",{
+  name:"",
+  contact:"",
+  address:""
+});
+
+let company=loadJSON("quotation_company",{
+  name:"",
+  owner:"",
+  mobile:"",
+  address:""
+});
+
+let quotationNo=generateQuoteNo();
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function loadJSON(key,fallback){
+
+  try{
+
+    const value=localStorage.getItem(key);
+
+    return value ? JSON.parse(value) : fallback;
+
+  }catch(e){
+
+    return fallback;
+
+  }
+
+}
+
+function num(value){
+
+  const n=parseFloat(value);
+
+  return Number.isFinite(n)?n:0;
+
+}
+
+function money(value){
+
+  return "Rs. "+num(value).toLocaleString("en-PK",{
+    maximumFractionDigits:2
+  });
+
+}
+
+function esc(value){
+
+  return String(value??"")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+function toast(message){
+
+  const t=document.getElementById("toast");
+
+  t.textContent=message;
+
+  t.classList.add("show");
+
+  clearTimeout(window.toastTimer);
+
+  window.toastTimer=setTimeout(()=>{
+    t.classList.remove("show");
+  },2200);
+
+}
+
+function closeModal(id){
+
+  document.getElementById(id).classList.remove("show");
+
+}
+
+function openModal(id){
+
+  document.getElementById(id).classList.add("show");
+
+}
+
+/* =========================================================
+   RATE FUNCTIONS
+========================================================= */
+
+function loadRates(){
+
+  const saved=loadJSON("aluminium_rates",null);
+
+  if(!Array.isArray(saved)||!saved.length){
+
+    return DEFAULT_RATES.map(r=>({
+      section:r[0],
+      g1:r[1],
+      g2:r[2],
+      g3:r[3]
+    }));
+
+  }
+
+  return saved;
+
+}
+
+function saveRates(){
+
+  localStorage.setItem(
+    "aluminium_rates",
+    JSON.stringify(rates)
+  );
+
+}
+
+function getGroup(thickness){
+
+  const t=num(thickness);
+
+  if(t<=1.2)return 1;
+
+  if(t<=1.6)return 2;
+
+  return 3;
+
+}
+
+function getRate(section,thickness){
+
+  const row=rates.find(
+    r=>r.section===section
+  );
+
+  if(!row||!thickness)return 0;
+
+  const group=getGroup(thickness);
+
+  if(group===1)return num(row.g1);
+
+  if(group===2)return num(row.g2);
+
+  return num(row.g3);
+
+}
+
+function renderSections(){
+
+  const select=document.getElementById("section");
+
+  const current=select.value;
+
+  select.innerHTML=
+    `<option value="">Select Section</option>`+
+    rates.map(r=>
+      `<option value="${esc(r.section)}">${esc(r.section)}</option>`
+    ).join("");
+
+  if(rates.some(r=>r.section===current)){
+    select.value=current;
+  }
+
+}
+
+function updateRate(){
+
+  const section=document.getElementById("section").value;
+
+  const thickness=document.getElementById("thickness").value;
+
+  const rate=getRate(section,thickness);
+
+  document.getElementById("rate").value=
+    rate||"";
+
+  document.getElementById("ratePreview").textContent=
+    rate?money(rate):"—";
+
+  renderRateChips();
+
+}
+
+function renderRateChips(){
+
+  const section=document.getElementById("section").value;
+
+  const thickness=document.getElementById("thickness").value;
+
+  const box=document.getElementById("rateChips");
+
+  const ts=[
+    "0.9",
+    "1.1",
+    "1.2",
+    "1.5",
+    "1.6",
+    "1.9",
+    "2.0"
+  ];
+
+  box.innerHTML=ts.map(t=>{
+
+    const r=getRate(section,t);
+
+    return `
+      <span class="rate-chip ${t===thickness?"active":""}">
+        ${t} · ${r?Number(r).toLocaleString():"—"}
+      </span>
+    `;
+
+  }).join("");
+
+}
+
+/* =========================================================
+   SIZE
+========================================================= */
+
+function parseSize(value){
+
+  const s=String(value||"")
+    .trim()
+    .replace(/×/g,"x")
+    .replace(/[X*]/g,"x");
+
+  const parts=s
+    .split("x")
+    .map(v=>parseFloat(v.trim()))
+    .filter(v=>Number.isFinite(v));
+
+  if(parts.length>=2){
+
+    return parts[0]*parts[1];
+
+  }
+
+  if(parts.length===1){
+
+    return parts[0];
+
+  }
+
+  return 0;
+
+}
+
+/* =========================================================
+   ADD ITEM
+========================================================= */
+
+function addItem(){
+
+  const section=
+    document.getElementById("section").value;
+
+  const colourSelect=
+    document.getElementById("colour").value;
+
+  const thickness=
+    document.getElementById("thickness").value;
+
+  const size=
+    document.getElementById("size").value.trim();
+
+  const qty=
+    num(document.getElementById("qty").value);
+
+  let rate=
+    num(document.getElementById("rate").value);
+
+  const discount=
+    Math.min(
+      Math.max(
+        num(document.getElementById("discount").value),
+        0
+      ),
+      100
+    );
+
+  if(!section){
+
+    toast("Please select Section");
+
+    return;
+
+  }
+
+  if(!thickness){
+
+    toast("Please select Thickness");
+
+    return;
+
+  }
+
+  if(!size){
+
+    toast("Please enter Length / Size");
+
+    return;
+
+  }
+
+  const area=parseSize(size);
+
+  if(!area){
+
+    toast("Example: 10 × 4");
+
+    return;
+
+  }
+
+  if(qty<=0){
+
+    toast("Please enter Quantity");
+
+    return;
+
+  }
+
+  if(rate<=0){
+
+    rate=getRate(section,thickness);
+
+  }
+
+  if(rate<=0){
+
+    toast("Rate not available");
+
+    return;
+
+  }
+
+  let colour=colourSelect;
+
+  if(colourSelect==="Custom"){
+
+    colour=
+      document.getElementById("customColour")
+        .value.trim()||"Custom";
+
+  }
+
+  const amount=
+    area*qty*rate;
+
+  const discountAmount=
+    amount*discount/100;
+
+  const net=
+    amount-discountAmount;
+
+  const item={
+    section,
+    colour,
+    thickness,
+    size,
+    qty,
+    area,
+    rate,
+    discount,
+    amount,
+    discountAmount,
+    net
+  };
+
+  if(editIndex>=0){
+
+    items[editIndex]=item;
+
+    editIndex=-1;
+
+    toast("Item updated");
+
+  }else{
+
+    /*
+      THIS IS THE IMPORTANT PART:
+      Every click creates a NEW item in the array.
+      Existing items are never replaced.
+    */
+
+    items.push(item);
+
+    toast(
+      "Item #"+items.length+" added to quotation table"
+    );
+
+  }
+
+  /*
+    Clear only fields that must be ready for next item.
+    Colour, Thickness and Discount stay selected.
+  */
+
+  document.getElementById("section").value="";
+
+  document.getElementById("size").value="";
+
+  document.getElementById("qty").value="";
+
+  document.getElementById("rate").value="";
+
+  document.getElementById("ratePreview").textContent="—";
+
+  renderRateChips();
+
+  renderItems();
+
+  calculateTotals();
+
+  saveDraft();
+
+  /*
+    Automatically focus Length / Size
+    so next item can be entered quickly.
+  */
+
+  setTimeout(()=>{
+    document.getElementById("size").focus();
+  },100);
+
+}
+
+/* =========================================================
+   RENDER TABLE
+========================================================= */
+
+function renderItems(){
+
+  const tbody=
+    document.getElementById("itemTableBody");
+
+  const mobile=
+    document.getElementById("mobileItems");
+
+  const empty=
+    document.getElementById("emptyItems");
+
+  document.getElementById("itemCount").textContent=
+    items.length+
+    (items.length===1
+      ?" item added"
+      :" items added");
+
+  if(!items.length){
+
+    tbody.innerHTML="";
+    mobile.innerHTML="";
+    empty.style.display="block";
+
+    return;
+
+  }
+
+  empty.style.display="none";
+
+  /*
+    DESKTOP QUOTATION TABLE
+  */
+
+  tbody.innerHTML=items.map((item,index)=>`
+
+    <tr>
+
+      <td>${index+1}</td>
+
+      <td class="section-name">
+        ${esc(item.section)}
+      </td>
+
+      <td>${esc(item.colour)}</td>
+
+      <td>${esc(item.thickness)} mm</td>
+
+      <td>${esc(item.size)}</td>
+
+      <td>${item.qty}</td>
+
+      <td>${money(item.rate)}</td>
+
+      <td>${money(item.amount)}</td>
+
+      <td>${item.discount}%</td>
+
+      <td class="net">
+        ${money(item.net)}
+      </td>
+
+      <td>
+
+        <div class="action-buttons">
+
+          <button
+            class="icon"
+            onclick="editItem(${index})"
+            title="Edit"
+          >
+            ✎
+          </button>
+
+          <button
+            class="icon"
+            onclick="copyItem(${index})"
+            title="Copy"
+          >
+            ⧉
+          </button>
+
+          <button
+            class="icon delete"
+            onclick="deleteItem(${index})"
+            title="Delete"
+          >
+            ✕
+          </button>
+
+        </div>
+
+      </td>
+
+    </tr>
+
+  `).join("");
+
+  /*
+    MOBILE ITEM CARDS
+  */
+
+  mobile.innerHTML=items.map((item,index)=>`
+
+    <div class="item-card">
+
+      <div class="item-top">
+
+        <div>
+
+          <div class="item-title">
+            #${index+1} · ${esc(item.section)}
+          </div>
+
+          <div class="item-sub">
+            ${esc(item.colour)} ·
+            ${esc(item.thickness)} mm
+          </div>
+
+        </div>
+
+        <div class="item-total">
+          ${money(item.net)}
+        </div>
+
+      </div>
+
+      <div class="item-info">
+
+        <div class="item-info-box">
+          <span>Size</span>
+          <strong>${esc(item.size)}</strong>
+        </div>
+
+        <div class="item-info-box">
+          <span>Qty</span>
+          <strong>${item.qty}</strong>
+        </div>
+
+        <div class="item-info-box">
+          <span>Rate</span>
+          <strong>${money(item.rate)}</strong>
+        </div>
+
+        <div class="item-info-box">
+          <span>Amount</span>
+          <strong>${money(item.amount)}</strong>
+        </div>
+
+        <div class="item-info-box">
+          <span>Discount</span>
+          <strong>${item.discount}%</strong>
+        </div>
+
+        <div class="item-info-box">
+          <span>Area</span>
+          <strong>${item.area}</strong>
+        </div>
+
+      </div>
+
+      <div class="item-actions">
+
+        <button
+          class="icon"
+          onclick="editItem(${index})"
+        >
+          ✎ Edit
+        </button>
+
+        <button
+          class="icon"
+          onclick="copyItem(${index})"
+        >
+          ⧉ Copy
+        </button>
+
+        <button
+          class="icon delete"
+          onclick="deleteItem(${index})"
+        >
+          ✕
+        </button>
+
+      </div>
+
+    </div>
+
+  `).join("");
+
+}
+
+/* =========================================================
+   EDIT / COPY / DELETE
+========================================================= */
+
+function editItem(index){
+
+  const item=items[index];
+
+  document.getElementById("section").value=
+    item.section;
+
+  const normalColours=[
+    "Champagne",
+    "White 9016",
+    "Matt Black",
+    "Silver",
+    "White",
+    "Brown",
+    "Golden",
+    "Wood"
+  ];
+
+  if(normalColours.includes(item.colour)){
+
+    document.getElementById("colour").value=
+      item.colour;
+
+    document.getElementById("customColourBox")
+      .style.display="none";
+
+  }else{
+
+    document.getElementById("colour").value="Custom";
+
+    document.getElementById("customColourBox")
+      .style.display="block";
+
+    document.getElementById("customColour").value=
+      item.colour;
+
+  }
+
+  document.getElementById("thickness").value=
+    item.thickness;
+
+  document.getElementById("size").value=
+    item.size;
+
+  document.getElementById("qty").value=
+    item.qty;
+
+  document.getElementById("rate").value=
+    item.rate;
+
+  document.getElementById("discount").value=
+    item.discount;
+
+  editIndex=index;
+
+  updateRate();
+
+  document.getElementById("rate").value=
+    item.rate;
+
+  window.scrollTo({
+    top:document.querySelector(".entry")
+      .getBoundingClientRect().top+
+      window.scrollY-
+      20,
+    behavior:"smooth"
+  });
+
+  toast("Editing Item #"+(index+1));
+
+}
+
+function copyItem(index){
+
+  const copy=
+    JSON.parse(JSON.stringify(items[index]));
+
+  items.push(copy);
+
+  renderItems();
+
+  calculateTotals();
+
+  saveDraft();
+
+  toast(
+    "Item copied as #"+items.length
+  );
+
+}
+
+function deleteItem(index){
+
+  if(!confirm(
+    "Delete Item #"+(index+1)+"?"
+  ))return;
+
+  items.splice(index,1);
+
+  renderItems();
+
+  calculateTotals();
+
+  saveDraft();
+
+  toast("Item deleted");
+
+}
+
+function clearItems(){
+
+  if(!items.length)return;
+
+  if(!confirm(
+    "Clear all quotation items?"
+  ))return;
+
+  items=[];
+
+  editIndex=-1;
+
+  renderItems();
+
+  calculateTotals();
+
+  saveDraft();
+
+  toast("Quotation item table cleared");
+
+}
+
+/* =========================================================
+   TOTALS
+========================================================= */
+
+function getTotals(){
+
+  const gross=
+    items.reduce(
+      (s,i)=>s+num(i.amount),
+      0
+    );
+
+  const itemDiscount=
+    items.reduce(
+      (s,i)=>s+num(i.discountAmount),
+      0
+    );
+
+  const net=
+    gross-itemDiscount;
+
+  const globalPercent=
+    Math.min(
+      Math.max(
+        num(document.getElementById("globalDiscount").value),
+        0
+      ),
+      100
+    );
+
+  const globalDiscount=
+    net*globalPercent/100;
+
+  const afterGlobal=
+    net-globalDiscount;
+
+  const labour=
+    num(document.getElementById("labour").value);
+
+  const freight=
+    num(document.getElementById("freight").value);
+
+  const previous=
+    num(document.getElementById("previous").value);
+
+  const paid=
+    num(document.getElementById("paid").value);
+
+  const charges=
+    labour+freight;
+
+  const grandTotal=
+    afterGlobal+
+    charges+
+    previous;
+
+  const balance=
+    grandTotal-paid;
+
+  return{
+    gross,
+    itemDiscount,
+    net,
+    globalDiscount,
+    afterGlobal,
+    labour,
+    freight,
+    previous,
+    paid,
+    charges,
+    grandTotal,
+    balance
+  };
+
+}
+
+function calculateTotals(){
+
+  const t=getTotals();
+
+  document.getElementById("gross").textContent=
+    money(t.gross);
+
+  document.getElementById("itemDiscount").textContent=
+    money(t.itemDiscount);
+
+  document.getElementById("net").textContent=
+    money(t.net);
+
+  document.getElementById("globalDiscountAmount").textContent=
+    money(t.globalDiscount);
+
+  document.getElementById("afterGlobal").textContent=
+    money(t.afterGlobal);
+
+  document.getElementById("charges").textContent=
+    money(t.charges);
+
+  document.getElementById("previousTotal").textContent=
+    money(t.previous);
+
+  document.getElementById("grandTotal").textContent=
+    money(t.grandTotal);
+
+  document.getElementById("paidTotal").textContent=
+    money(t.paid);
+
+  document.getElementById("balanceTotal").textContent=
+    money(t.balance);
+
+  document.getElementById("quoteStatus").textContent=
+    items.length
+      ?"In Progress"
+      :"Draft";
+
+  saveDraft();
+
+}
+
+/* =========================================================
+   CUSTOMER
+========================================================= */
+
+function openCustomer(){
+
+  document.getElementById("customerName").value=
+    customer.name;
+
+  document.getElementById("customerContact").value=
+    customer.contact;
+
+  document.getElementById("customerAddress").value=
+    customer.address;
+
+  openModal("customerModal");
+
+}
+
+function saveCustomer(){
+
+  customer={
+    name:document.getElementById("customerName").value.trim(),
+    contact:document.getElementById("customerContact").value.trim(),
+    address:document.getElementById("customerAddress").value.trim()
+  };
+
+  localStorage.setItem(
+    "quotation_customer",
+    JSON.stringify(customer)
+  );
+
+  updateProfile();
+
+  closeModal("customerModal");
+
+  toast("Customer saved");
+
+}
+
+function updateProfile(){
+
+  document.getElementById("customerView").textContent=
+    customer.name||
+    "Customer not added";
+
+  document.getElementById("customerExtra").textContent=
+    customer.contact||
+    customer.address||
+    "Add customer details";
+
+  document.getElementById("companyView").textContent=
+    company.name||
+    "Company not added";
+
+  document.getElementById("companyExtra").textContent=
+    company.mobile||
+    company.address||
+    "Add company details";
+
+}
+
+/* =========================================================
+   COMPANY
+========================================================= */
+
+function openCompany(){
+
+  document.getElementById("companyName").value=
+    company.name;
+
+  document.getElementById("companyOwner").value=
+    company.owner;
+
+  document.getElementById("companyMobile").value=
+    company.mobile;
+
+  document.getElementById("companyAddress").value=
+    company.address;
+
+  openModal("companyModal");
+
+}
+
+function saveCompany(){
+
+  company={
+    name:document.getElementById("companyName").value.trim(),
+    owner:document.getElementById("companyOwner").value.trim(),
+    mobile:document.getElementById("companyMobile").value.trim(),
+    address:document.getElementById("companyAddress").value.trim()
+  };
+
+  localStorage.setItem(
+    "quotation_company",
+    JSON.stringify(company)
+  );
+
+  updateProfile();
+
+  closeModal("companyModal");
+
+  toast("Company saved");
+
+}
+
+/* =========================================================
+   RATE MANAGER
+========================================================= */
+
+function openRates(){
+
+  renderRates();
+
+  openModal("ratesModal");
+
+}
+
+function renderRates(){
+
+  const body=
+    document.getElementById("ratesBody");
+
+  body.innerHTML=rates.map((r,i)=>{
+
+    const values=[
+      r.g1,
+      r.g1,
+      r.g1,
+      r.g2,
+      r.g2,
+      r.g3,
+      r.g3
+    ];
+
+    return`
+
+      <tr>
+
+        <td>
+          <strong>${esc(r.section)}</strong>
+        </td>
+
+        ${values.map((v,j)=>`
+
+          <td>
+
+            <input
+              class="rate-input"
+              type="number"
+              value="${v}"
+              onchange="changeRate(${i},${j},this.value)"
+            >
+
+          </td>
+
+        `).join("")}
+
+        <td>
+
+          <button
+            class="icon delete"
+            onclick="deleteRate(${i})"
+          >
+            ✕
+          </button>
+
+        </td>
+
+      </tr>
+
+    `;
+
+  }).join("");
+
+}
+
+function changeRate(index,column,value){
+
+  const v=num(value);
+
+  if(column<=2){
+
+    rates[index].g1=v;
+
+  }else if(column<=4){
+
+    rates[index].g2=v;
+
+  }else{
+
+    rates[index].g3=v;
+
+  }
+
+  saveRates();
+
+  updateRate();
+
+}
+
+function deleteRate(index){
+
+  if(!confirm(
+    "Delete "+rates[index].section+" rate?"
+  ))return;
+
+  rates.splice(index,1);
+
+  saveRates();
+
+  renderSections();
+
+  renderRates();
+
+  toast("Rate deleted");
+
+}
+
+function openAddRate(){
+
+  document.getElementById("newSection").value="";
+  document.getElementById("newG1").value="";
+  document.getElementById("newG2").value="";
+  document.getElementById("newG3").value="";
+
+  openModal("addRateModal");
+
+}
+
+function saveNewRate(){
+
+  const section=
+    document.getElementById("newSection")
+      .value.trim();
+
+  if(!section){
+
+    toast("Enter section name");
+
+    return;
+
+  }
+
+  if(rates.some(
+    r=>r.section.toLowerCase()===
+      section.toLowerCase()
+  )){
+
+    toast("Section already exists");
+
+    return;
+
+  }
+
+  rates.push({
+
+    section,
+
+    g1:num(
+      document.getElementById("newG1").value
+    ),
+
+    g2:num(
+      document.getElementById("newG2").value
+    ),
+
+    g3:num(
+      document.getElementById("newG3").value
+    )
+
+  });
+
+  saveRates();
+
+  renderSections();
+
+  renderRates();
+
+  closeModal("addRateModal");
+
+  toast("New rate added");
+
+}
+
+/* =========================================================
+   SAVE DRAFT
+========================================================= */
+
+function saveDraft(){
+
+  const draft={
+
+    quoteNo:quotationNo,
+
+    items,
+
+    globalDiscount:
+      document.getElementById("globalDiscount").value,
+
+    labour:
+      document.getElementById("labour").value,
+
+    freight:
+      document.getElementById("freight").value,
+
+    previous:
+      document.getElementById("previous").value,
+
+    paid:
+      document.getElementById("paid").value,
+
+    notes:
+      document.getElementById("notes").value
+
+  };
+
+  localStorage.setItem(
+    "quotation_draft",
+    JSON.stringify(draft)
+  );
+
+  document.getElementById("saveStatus").textContent=
+    "Saved";
+
+}
+
+function loadDraft(){
+
+  const draft=
+    loadJSON("quotation_draft",null);
+
+  if(!draft)return;
+
+  items=
+    Array.isArray(draft.items)
+      ?draft.items
+      :[];
+
+  document.getElementById("globalDiscount").value=
+    draft.globalDiscount||0;
+
+  document.getElementById("labour").value=
+    draft.labour||0;
+
+  document.getElementById("freight").value=
+    draft.freight||0;
+
+  document.getElementById("previous").value=
+    draft.previous||0;
+
+  document.getElementById("paid").value=
+    draft.paid||0;
+
+  document.getElementById("notes").value=
+    draft.notes||"";
+
+}
+
+/* =========================================================
+   QUOTATION NUMBER
+========================================================= */
+
+function generateQuoteNo(){
+
+  const history=
+    loadJSON("quotation_history",[]);
+
+  let max=0;
+
+  history.forEach(q=>{
+
+    const m=
+      String(q.quoteNo||"")
+      .match(/\d+/);
+
+    if(m){
+
+      max=Math.max(
+        max,
+        num(m[0])
+      );
+
+    }
+
+  });
+
+  return "Q-"+String(max+1).padStart(4,"0");
+
+}
+
+/* =========================================================
+   SAVE QUOTATION
+========================================================= */
+
+function saveQuotation(){
+
+  if(!items.length){
+
+    toast(
+      "Add at least one item first"
+    );
+
+    return;
+
+  }
+
+  const history=
+    loadJSON("quotation_history",[]);
+
+  const record={
+
+    quoteNo:quotationNo,
+
+    date:new Date().toISOString(),
+
+    customer:{...customer},
+
+    company:{...company},
+
+    items:JSON.parse(
+      JSON.stringify(items)
+    ),
+
+    globalDiscount:
+      num(document.getElementById("globalDiscount").value),
+
+    labour:
+      num(document.getElementById("labour").value),
+
+    freight:
+      num(document.getElementById("freight").value),
+
+    previous:
+      num(document.getElementById("previous").value),
+
+    paid:
+      num(document.getElementById("paid").value),
+
+    notes:
+      document.getElementById("notes").value,
+
+    totals:getTotals()
+
+  };
+
+  const index=
+    history.findIndex(
+      q=>q.quoteNo===quotationNo
+    );
+
+  if(index>=0){
+
+    history[index]=record;
+
+  }else{
+
+    history.unshift(record);
+
+  }
+
+  localStorage.setItem(
+    "quotation_history",
+    JSON.stringify(history)
+  );
+
+  document.getElementById("saveStatus").textContent=
+    "Saved";
+
+  toast(
+    "Quotation "+quotationNo+" saved"
+  );
+
+}
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+function openHistory(){
+
+  renderHistory();
+
+  openModal("historyModal");
+
+}
+
+function renderHistory(){
+
+  const search=
+    document.getElementById("historySearch")
+      .value
+      .trim()
+      .toLowerCase();
+
+  const history=
+    loadJSON("quotation_history",[]);
+
+  const filtered=
+    history.filter(q=>{
+
+      const text=[
+        q.quoteNo,
+        q.customer?.name,
+        q.customer?.contact
+      ].join(" ").toLowerCase();
+
+      return text.includes(search);
+
+    });
+
+  const box=
+    document.getElementById("historyList");
+
+  if(!filtered.length){
+
+    box.innerHTML=`
+      <div class="empty">
+        <div class="empty-icon">◷</div>
+        <strong>No quotations found</strong>
+        <span>Saved quotations will appear here.</span>
+      </div>
+    `;
+
+    return;
+
+  }
+
+  box.innerHTML=
+    filtered.map(q=>`
+
+      <div class="history-card">
+
+        <div class="history-top">
+
+          <div>
+
+            <div class="history-title">
+              ${esc(q.quoteNo)}
+            </div>
+
+            <div class="history-date">
+              ${new Date(q.date).toLocaleString()}
+            </div>
+
+            <div class="history-date">
+              ${esc(q.customer?.name||"No customer")}
+            </div>
+
+          </div>
+
+          <div class="history-total">
+            ${money(q.totals?.grandTotal||0)}
+          </div>
+
+        </div>
+
+        <div style="margin-top:8px;display:flex;gap:5px;">
+
+          <button
+            class="tool"
+            onclick="openQuotation('${q.quoteNo}')"
+          >
+            Open
+          </button>
+
+          <button
+            class="tool"
+            onclick="deleteQuotation('${q.quoteNo}')"
+          >
+            Delete
+          </button>
+
+        </div>
+
+      </div>
+
+    `).join("");
+
+}
+
+function openQuotation(quoteNo){
+
+  const history=
+    loadJSON("quotation_history",[]);
+
+  const q=
+    history.find(x=>x.quoteNo===quoteNo);
+
+  if(!q)return;
+
+  quotationNo=q.quoteNo;
+
+  customer=q.customer||{
+    name:"",
+    contact:"",
+    address:""
+  };
+
+  company=q.company||{
+    name:"",
+    owner:"",
+    mobile:"",
+    address:""
+  };
+
+  items=q.items||[];
+
+  document.getElementById("globalDiscount").value=
+    q.globalDiscount||0;
+
+  document.getElementById("labour").value=
+    q.labour||0;
+
+  document.getElementById("freight").value=
+    q.freight||0;
+
+  document.getElementById("previous").value=
+    q.previous||0;
+
+  document.getElementById("paid").value=
+    q.paid||0;
+
+  document.getElementById("notes").value=
+    q.notes||"";
+
+  updateHeader();
+
+  updateProfile();
+
+  renderItems();
+
+  calculateTotals();
+
+  closeModal("historyModal");
+
+  toast("Quotation opened");
+
+}
+
+function deleteQuotation(quoteNo){
+
+  if(!confirm(
+    "Delete "+quoteNo+"?"
+  ))return;
+
+  const history=
+    loadJSON("quotation_history",[]);
+
+  const filtered=
+    history.filter(
+      q=>q.quoteNo!==quoteNo
+    );
+
+  localStorage.setItem(
+    "quotation_history",
+    JSON.stringify(filtered)
+  );
+
+  renderHistory();
+
+  toast("Quotation deleted");
+
+}
+
+/* =========================================================
+   NEW QUOTATION
+========================================================= */
+
+function newQuotation(){
+
+  if(items.length){
+
+    if(!confirm(
+      "Start new quotation? Current unsaved items will be cleared."
+    ))return;
+
+  }
+
+  quotationNo=generateQuoteNo();
+
+  items=[];
+
+  editIndex=-1;
+
+  document.getElementById("section").value="";
+
+  document.getElementById("size").value="";
+
+  document.getElementById("qty").value="";
+
+  document.getElementById("rate").value="";
+
+  document.getElementById("ratePreview").textContent="—";
+
+  document.getElementById("globalDiscount").value=0;
+
+  document.getElementById("labour").value=0;
+
+  document.getElementById("freight").value=0;
+
+  document.getElementById("previous").value=0;
+
+  document.getElementById("paid").value=0;
+
+  document.getElementById("notes").value="";
+
+  document.getElementById("discount").value=0;
+
+  renderItems();
+
+  calculateTotals();
+
+  updateHeader();
+
+  toast(
+    "New quotation "+quotationNo+" ready"
+  );
+
+}
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+function openSummary(){
+
+  const t=getTotals();
+
+  document.getElementById("summaryBody").innerHTML=`
+
+    <div class="profile-card">
+
+      <div class="profile-icon">#</div>
+
+      <div>
+
+        <div class="profile-label">
+          Quotation
+        </div>
+
+        <div class="profile-name">
+          ${esc(quotationNo)}
+        </div>
+
+        <div class="profile-extra">
+          ${esc(customer.name||"No customer")}
+        </div>
+
+      </div>
+
+    </div>
+
+    <div style="margin-top:10px;">
+
+      <div class="summary-row">
+        <span>Items</span>
+        <strong>${items.length}</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Gross</span>
+        <strong>${money(t.gross)}</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Item Discount</span>
+        <strong>${money(t.itemDiscount)}</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Net</span>
+        <strong>${money(t.net)}</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Global Discount</span>
+        <strong>${money(t.globalDiscount)}</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Labour + Freight</span>
+        <strong>${money(t.charges)}</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Previous Balance</span>
+        <strong>${money(t.previous)}</strong>
+      </div>
+
+      <div class="grand">
+
+        <div class="grand-line">
+
+          <small>Grand Total</small>
+
+          <strong>
+            ${money(t.grandTotal)}
+          </strong>
+
+        </div>
+
+        <div class="balance-line">
+          <span>Paid</span>
+          <strong>${money(t.paid)}</strong>
+        </div>
+
+        <div class="balance-line">
+          <span>Balance</span>
+          <strong>${money(t.balance)}</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="modal-actions">
+
+      <button
+        class="tool"
+        onclick="window.print()"
+      >
+        🖨 Print
+      </button>
+
+      <button
+        class="tool primary"
+        onclick="saveQuotation()"
+      >
+        💾 Save
+      </button>
+
+    </div>
+
+  `;
+
+  openModal("summaryModal");
+
+}
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+function sendWhatsApp(){
+
+  if(!items.length){
+
+    toast(
+      "Add quotation items first"
+    );
+
+    return;
+
+  }
+
+  const t=getTotals();
+
+  let message=
+`ALUMINIUM QUOTATION
+Quotation: ${quotationNo}
+Customer: ${customer.name||"—"}
+
+`;
+
+  items.forEach((item,index)=>{
+
+    message+=
+`${index+1}. ${item.section}
+Colour: ${item.colour}
+Thickness: ${item.thickness} mm
+Size: ${item.size}
+Qty: ${item.qty}
+Rate: ${item.rate}
+Amount: ${item.amount}
+Discount: ${item.discount}%
+Net: ${item.net}
+
+`;
+
+  });
+
+  message+=
+`Gross: ${t.gross}
+Item Discount: ${t.itemDiscount}
+Net: ${t.net}
+Global Discount: ${t.globalDiscount}
+Labour: ${t.labour}
+Freight: ${t.freight}
+Previous Balance: ${t.previous}
+GRAND TOTAL: ${t.grandTotal}
+PAID: ${t.paid}
+BALANCE: ${t.balance}
+
+${document.getElementById("notes").value}`;
+
+  window.open(
+    "https://wa.me/?text="+
+    encodeURIComponent(message),
+    "_blank"
+  );
+
+}
+
+/* =========================================================
+   BACKUP
+========================================================= */
+
+function backup(){
+
+  const data={
+
+    version:1,
+
+    rates,
+
+    customer,
+
+    company,
+
+    history:
+      loadJSON("quotation_history",[]),
+
+    draft:
+      loadJSON("quotation_draft",null)
+
+  };
+
+  const blob=
+    new Blob(
+      [JSON.stringify(data,null,2)],
+      {type:"application/json"}
+    );
+
+  const url=
+    URL.createObjectURL(blob);
+
+  const a=
+    document.createElement("a");
+
+  a.href=url;
+
+  a.download=
+    "aluminium-pro-backup.json";
+
+  a.click();
+
+  URL.revokeObjectURL(url);
+
+  toast("Backup downloaded");
+
+}
+
+document.getElementById("restore")
+.addEventListener("change",function(){
+
+  const file=this.files[0];
+
+  if(!file)return;
+
+  const reader=new FileReader();
+
+  reader.onload=function(e){
+
+    try{
+
+      const data=
+        JSON.parse(e.target.result);
+
+      if(Array.isArray(data.rates)){
+
+        rates=data.rates;
+
+        saveRates();
+
+      }
+
+      if(data.customer){
+
+        customer=data.customer;
+
+        localStorage.setItem(
+          "quotation_customer",
+          JSON.stringify(customer)
+        );
+
+      }
+
+      if(data.company){
+
+        company=data.company;
+
+        localStorage.setItem(
+          "quotation_company",
+          JSON.stringify(company)
+        );
+
+      }
+
+      if(Array.isArray(data.history)){
+
+        localStorage.setItem(
+          "quotation_history",
+          JSON.stringify(data.history)
+        );
+
+      }
+
+      if(data.draft){
+
+        localStorage.setItem(
+          "quotation_draft",
+          JSON.stringify(data.draft)
+        );
+
+      }
+
+      renderSections();
+
+      updateProfile();
+
+      loadDraft();
+
+      renderItems();
+
+      calculateTotals();
+
+      updateHeader();
+
+      toast("Backup restored");
+
+    }catch(e){
+
+      toast("Invalid backup file");
+
+    }
+
+  };
+
+  reader.readAsText(file);
+
+  this.value="";
+
+});
+
+/* =========================================================
+   CHECK APP
+========================================================= */
+
+function checkApp(){
+
+  const tests=[];
+
+  tests.push([
+    "Rates loaded",
+    rates.length>0
+  ]);
+
+  tests.push([
+    "Sections loaded",
+    document.getElementById("section").options.length>1
+  ]);
+
+  tests.push([
+    "Rate Group 1",
+    getGroup("1.2")===1
+  ]);
+
+  tests.push([
+    "Rate Group 2",
+    getGroup("1.6")===2
+  ]);
+
+  tests.push([
+    "Rate Group 3",
+    getGroup("2.0")===3
+  ]);
+
+  tests.push([
+    "Size parser 10 × 4",
+    parseSize("10 × 4")===40
+  ]);
+
+  tests.push([
+    "Local Storage",
+    typeof localStorage!=="undefined"
+  ]);
+
+  tests.push([
+    "Quotation table",
+    Array.isArray(items)
+  ]);
+
+  tests.push([
+    "Backup",
+    typeof backup==="function"
+  ]);
+
+  tests.push([
+    "Print",
+    typeof window.print==="function"
+  ]);
+
+  const passed=
+    tests.filter(x=>x[1]).length;
+
+  document.getElementById("checkBody").innerHTML=`
+
+    <div style="
+      padding:14px;
+      border-radius:13px;
+      background:${passed===tests.length
+        ?"#e8f8f1"
+        :"#fff5e5"};
+      margin-bottom:10px;
+    ">
+
+      <strong>
+        ${passed}/${tests.length} Tests Passed
+      </strong>
+
+    </div>
+
+    ${tests.map(t=>`
+
+      <div style="
+        display:flex;
+        justify-content:space-between;
+        padding:9px 0;
+        border-bottom:1px solid var(--line);
+        font-size:10px;
+      ">
+
+        <span>${esc(t[0])}</span>
+
+        <strong style="
+          color:${t[1]
+            ?"var(--green)"
+            :"var(--red)"};
+        ">
+          ${t[1]?"✓ PASS":"✕ FAIL"}
+        </strong>
+
+      </div>
+
+    `).join("")}
+
+  `;
+
+  openModal("checkModal");
+
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+function updateHeader(){
+
+  document.getElementById("quoteNo").textContent=
+    quotationNo;
+
+  document.getElementById("quoteDate").textContent=
+    new Date().toLocaleDateString("en-PK");
+
+  document.getElementById("quoteStatus").textContent=
+    items.length
+      ?"In Progress"
+      :"Draft";
+
+}
+
+/* =========================================================
+   CUSTOM COLOUR
+========================================================= */
+
+document.getElementById("colour")
+.addEventListener("change",function(){
+
+  const box=
+    document.getElementById("customColourBox");
+
+  if(this.value==="Custom"){
+
+    box.style.display="block";
+
+  }else{
+
+    box.style.display="none";
+
+    document.getElementById("customColour").value="";
+
+  }
+
+});
+
+/* =========================================================
+   AUTO SAVE CHARGES
+========================================================= */
+
+[
+  "globalDiscount",
+  "labour",
+  "freight",
+  "previous",
+  "paid",
+  "notes"
+].forEach(id=>{
+
+  document.getElementById(id)
+    .addEventListener("input",calculateTotals);
+
+});
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener("keydown",function(e){
+
+  if((e.ctrlKey||e.metaKey)&&
+     e.key.toLowerCase()==="s"){
+
+    e.preventDefault();
+
+    saveQuotation();
+
+  }
+
+  if((e.ctrlKey||e.metaKey)&&
+     e.key.toLowerCase()==="p"){
+
+    e.preventDefault();
+
+    window.print();
+
+  }
+
+  if(e.key==="Escape"){
+
+    document.querySelectorAll(".modal.show")
+      .forEach(x=>x.classList.remove("show"));
+
+  }
+
+});
+
+/* =========================================================
+   INIT
+========================================================= */
+
+function init(){
+
+  renderSections();
+
+  updateProfile();
+
+  updateHeader();
+
+  loadDraft();
+
+  renderItems();
+
+  calculateTotals();
+
+  renderRateChips();
+
+}
+
+init();
+
+</script>
+
+</body>
+</html>
